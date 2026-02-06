@@ -136,7 +136,7 @@ export default function RootLayout({
         <I18nProvider>
           <PlanProvider>
             <div className="flex min-h-screen flex-col">
-              <header className="border-b border-slate-100 bg-white/80 px-6 py-4 text-slate-500 backdrop-blur">
+              <header className="border-b border-slate-100 bg-white/80 px-6 py-4 text-slate-500 backdrop-blur z-50">
                 <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4">
                   <Link href="/" className="flex items-center gap-2 text-slate-900">
                     <Image
