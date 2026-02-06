@@ -1,4 +1,4 @@
-export type Locale = "de" | "fr" | "it" | "rm";
+export type Locale = "de" | "en" | "fr" | "it" | "rm";
 
 type TranslationValues = Record<string, string | number>;
 
@@ -7,12 +7,14 @@ export const translations = {
     languageLabel: "Sprache",
     languages: {
       de: "Deutsch",
+      en: "Englisch",
       fr: "Französisch",
       it: "Italienisch",
       rm: "Rumantsch Grischun",
     },
     languagesShort: {
       de: "DE",
+      en: "EN",
       fr: "FR",
       it: "IT",
       rm: "RM",
@@ -189,12 +191,14 @@ export const translations = {
     languageLabel: "Langue",
     languages: {
       de: "Allemand",
+      en: "Anglais",
       fr: "Français",
       it: "Italien",
       rm: "Rumantsch Grischun",
     },
     languagesShort: {
       de: "DE",
+      en: "EN",
       fr: "FR",
       it: "IT",
       rm: "RM",
@@ -204,12 +208,14 @@ export const translations = {
     languageLabel: "Lingua",
     languages: {
       de: "Tedesco",
+      en: "Inglese",
       fr: "Francese",
       it: "Italiano",
       rm: "Rumantsch Grischun",
     },
     languagesShort: {
       de: "DE",
+      en: "EN",
       fr: "FR",
       it: "IT",
       rm: "RM",
@@ -219,12 +225,14 @@ export const translations = {
     languageLabel: "Lingua",
     languages: {
       de: "Tudestg",
+      en: "Englais",
       fr: "Franzos",
       it: "Talian",
       rm: "Rumantsch Grischun",
     },
     languagesShort: {
       de: "DE",
+      en: "EN",
       fr: "FR",
       it: "IT",
       rm: "RM",
@@ -234,12 +242,14 @@ export const translations = {
     languageLabel: "Language",
     languages: {
       de: "German",
+      en: "English",
       fr: "French",
       it: "Italian",
       rm: "Rumantsch Grischun",
     },
     languagesShort: {
       de: "DE",
+      en: "EN",
       fr: "FR",
       it: "IT",
       rm: "RM",
@@ -413,7 +423,7 @@ export const translations = {
   },
 } as const;
 
-export const supportedLocales: Locale[] = ["de", "fr", "it", "rm"];
+export const supportedLocales: Locale[] = ["de", "en", "fr", "it", "rm"];
 
 export const durationOptionKeys = [
   "duration_3_5",

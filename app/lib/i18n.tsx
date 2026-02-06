@@ -52,6 +52,8 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       ? "it"
       : navigatorLanguage.startsWith("rm")
       ? "rm"
+      : navigatorLanguage.startsWith("en")
+      ? "en"
       : "de";
     setLocale(browserLocale);
   }, []);
