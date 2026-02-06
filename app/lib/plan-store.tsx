@@ -18,6 +18,7 @@ export const defaultAnswers: PlanningAnswers = {
   travelStyle: "",
   budget: "",
   travelers: "",
+  childrenCount: 0,
   season: "",
 };
 

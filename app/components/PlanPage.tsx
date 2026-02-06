@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PrimaryInput } from "./PrimaryInput";
 import { OptionChips } from "./OptionChips";
 import { StepProgress } from "./StepProgress";
-import { useI18n, useTranslations } from "../lib/i18n";
+import { useI18n, useTranslationList, useTranslations } from "../lib/i18n";
 import { usePlan } from "../lib/plan-store";
 import {
   durationOptionKeys,
@@ -45,7 +45,11 @@ const isStepValid = (stepId: string, answers: PlanningAnswers) => {
     case "budget":
       return answers.budget.trim().length > 0;
     case "travelers":
-      return answers.travelers.trim().length > 0;
+      if (answers.travelers.trim().length === 0) return false;
+      if (answers.travelers === "Family + kids") {
+        return answers.childrenCount > 0;
+      }
+      return true;
     case "season":
       return true;
     default:
@@ -58,9 +62,25 @@ export function PlanPage() {
   const { answers, updateAnswer, setResult } = usePlan();
   const { locale } = useI18n();
   const t = useTranslations();
+  const translationList = useTranslationList();
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+
+  const loadingMessages = useMemo(() => {
+    const messages = translationList.plan?.loading?.messages;
+    return Array.isArray(messages) ? messages : [];
+  }, [translationList]);
+
+  useEffect(() => {
+    if (!isSubmitting || loadingMessages.length === 0) return;
+    setLoadingMessageIndex(0);
+    const interval = window.setInterval(() => {
+      setLoadingMessageIndex((prev) => (prev + 1) % loadingMessages.length);
+    }, 2400);
+    return () => window.clearInterval(interval);
+  }, [isSubmitting, loadingMessages]);
 
   const durationOptions = useMemo(
     () =>
@@ -247,12 +267,41 @@ export function PlanPage() {
           ) : null}
 
           {step.id === "travelers" ? (
-            <OptionChips
-              label={t("plan.travelers.question")}
-              options={travelerOptions}
-              value={answers.travelers}
-              onChange={(value) => updateAnswer("travelers", value)}
-            />
+            <div className="space-y-6">
+              <OptionChips
+                label={t("plan.travelers.question")}
+                options={travelerOptions}
+                value={answers.travelers}
+                onChange={(value) => {
+                  updateAnswer("travelers", value);
+                  if (value !== "Family + kids") {
+                    updateAnswer("childrenCount", 0);
+                  }
+                }}
+              />
+              {answers.travelers === "Family + kids" ? (
+                <PrimaryInput
+                  label={t("plan.travelers.childrenLabel")}
+                  placeholder={t("plan.travelers.childrenPlaceholder")}
+                  hint={t("plan.travelers.childrenHint")}
+                  type="number"
+                  min={0}
+                  max={10}
+                  value={
+                    answers.childrenCount > 0
+                      ? String(answers.childrenCount)
+                      : ""
+                  }
+                  onChange={(event) => {
+                    const nextValue = Number(event.target.value);
+                    updateAnswer(
+                      "childrenCount",
+                      Number.isNaN(nextValue) ? 0 : nextValue
+                    );
+                  }}
+                />
+              ) : null}
+            </div>
           ) : null}
 
           {step.id === "season" ? (
@@ -287,10 +336,37 @@ export function PlanPage() {
             disabled={!canProceed || isSubmitting}
             className="cursor-pointer rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-teal-600 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {isLastStep ? t("plan.buttons.submit") : t("plan.buttons.next")}
+            {isSubmitting
+              ? t("plan.buttons.submitting")
+              : isLastStep
+              ? t("plan.buttons.submit")
+              : t("plan.buttons.next")}
           </button>
         </div>
       </div>
+
+      {isSubmitting ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/40 px-6 py-8 backdrop-blur-sm">
+          <div className="flex w-full max-w-lg flex-col items-center gap-6 rounded-3xl bg-white p-8 text-center shadow-xl">
+            <div className="flex items-center gap-3 text-teal-600">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border-4 border-teal-200 border-t-teal-600 animate-spin" />
+              <div className="text-left">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  {t("plan.loading.title")}
+                </p>
+                <p className="text-xl font-semibold text-slate-900">
+                  {t("plan.loading.subtitle")}
+                </p>
+              </div>
+            </div>
+            {loadingMessages.length > 0 ? (
+              <p className="text-sm text-slate-500">
+                {loadingMessages[loadingMessageIndex]}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }

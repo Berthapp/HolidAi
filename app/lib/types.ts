@@ -18,6 +18,7 @@ export type PlanningAnswers = {
   travelStyle: TravelStyle | "";
   budget: BudgetFeeling | "";
   travelers: TravelersGroup | "";
+  childrenCount: number;
   season: string;
 };
 
@@ -54,6 +55,7 @@ export const examplePlanRequest: PlanRequest = {
     travelStyle: "City",
     budget: "Medium",
     travelers: "Couple",
+    childrenCount: 0,
     season: "September",
   },
 };
