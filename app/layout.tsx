@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PlanProvider } from "./lib/plan-store";
 import { Footer } from "./components/Footer";
+import { I18nProvider } from "./lib/i18n";
+import { LanguageSelector } from "./components/LanguageSelector";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,12 +45,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 text-slate-900 antialiased`}
       >
-        <PlanProvider>
-          <div className="flex min-h-screen flex-col">
-            <div className="flex-1">{children}</div>
-            <Footer />
-          </div>
-        </PlanProvider>
+        <I18nProvider>
+          <PlanProvider>
+            <div className="flex min-h-screen flex-col">
+              <header className="border-b border-slate-100 bg-white/80 px-6 py-4 text-slate-500 backdrop-blur">
+                <div className="mx-auto flex w-full max-w-5xl items-center justify-end">
+                  <LanguageSelector />
+                </div>
+              </header>
+              <div className="flex-1">{children}</div>
+              <Footer />
+            </div>
+          </PlanProvider>
+        </I18nProvider>
       </body>
     </html>
   );

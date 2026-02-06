@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { PrimaryInput } from "./components/PrimaryInput";
+import { useTranslations } from "./lib/i18n";
 import { defaultAnswers, usePlan } from "./lib/plan-store";
 
 export default function Home() {
@@ -11,11 +12,12 @@ export default function Home() {
   const { setAnswers, setResult } = usePlan();
   const [destination, setDestination] = useState("");
   const [error, setError] = useState("");
+  const t = useTranslations();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!destination.trim()) {
-      setError("Bitte gib ein Ziel ein.");
+      setError(t("home.errorDestination"));
       return;
     }
     setError("");
@@ -43,15 +45,14 @@ export default function Home() {
             priority
           />
           <span className="mt-4 text-sm font-semibold uppercase tracking-[0.35em] text-teal-700">
-            AI Vacation Planning
+            {t("home.badge")}
           </span>
         </div>
         <h1 className="mt-8 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-          Dein smarter Urlaub in wenigen Minuten.
+          {t("home.title")}
         </h1>
         <p className="mt-4 text-base text-slate-600">
-          Starte mit einem Ziel. Wir führen dich Schritt für Schritt zum perfekten
-          Plan.
+          {t("home.subtitle")}
         </p>
       </div>
 
@@ -62,8 +63,8 @@ export default function Home() {
 
         <div className="mt-6">
           <PrimaryInput
-            label="Wo möchtest du hin?"
-            placeholder="z. B. Porto, Island, Thailand"
+            label={t("home.destinationLabel")}
+            placeholder={t("home.destinationPlaceholder")}
             value={destination}
             onChange={(event) => setDestination(event.target.value)}
           />
@@ -74,16 +75,16 @@ export default function Home() {
           type="submit"
           className="mt-6 w-full rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-teal-600"
         >
-          Plan starten
+          {t("home.startPlan")}
         </button>
 
         <div className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-500">
           <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-          <span>In Minuten startklar.</span>
+          <span>{t("home.highlights.ready")}</span>
           <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-          <span>Personalisierter Plan.</span>
+          <span>{t("home.highlights.personalized")}</span>
           <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-          <span>Transparent &amp; klar.</span>
+          <span>{t("home.highlights.transparent")}</span>
         </div>
       </form>
     </main>

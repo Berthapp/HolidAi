@@ -1,3 +1,5 @@
+import type { Locale } from "./i18n-data";
+
 export type TravelStyle =
   | "Relax"
   | "Nature"
@@ -20,6 +22,7 @@ export type PlanningAnswers = {
 };
 
 export type PlanRequest = {
+  locale: Locale;
   answers: PlanningAnswers;
 };
 
@@ -44,6 +47,7 @@ export type TravelPlanResponse = {
 };
 
 export const examplePlanRequest: PlanRequest = {
+  locale: "de",
   answers: {
     destination: "Lisbon",
     duration: "5-7 Tage",

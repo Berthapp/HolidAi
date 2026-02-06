@@ -1,49 +1,44 @@
+"use client";
+
+import { useTranslationList, useTranslations } from "../lib/i18n";
+
 export default function DatenschutzPage() {
+  const t = useTranslations();
+  const list = useTranslationList();
+
   return (
     <main className="mx-auto flex min-h-[70vh] w-full max-w-3xl flex-col gap-6 px-6 py-16">
       <header>
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-600">
-          Rechtliches
+          {t("legal.kicker")}
         </p>
         <h1 className="mt-2 text-3xl font-semibold text-slate-900">
-          Datenschutzerklärung
+          {t("legal.privacy.title")}
         </h1>
       </header>
 
       <section className="space-y-3 text-sm text-slate-600">
-        <p>
-          Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Diese
-          Erklärung informiert dich darüber, welche Daten beim Besuch von
-          HolidAI verarbeitet werden und zu welchem Zweck.
-        </p>
-        <p>
-          Verantwortliche Stelle: HolidAI, Musterstraße 1, 12345 Musterstadt,
-          Deutschland. Kontakt: hallo@holidai.de.
-        </p>
+        <p>{t("legal.privacy.intro")}</p>
+        <p>{t("legal.privacy.contact")}</p>
       </section>
 
       <section className="space-y-3 text-sm text-slate-600">
         <h2 className="text-base font-semibold text-slate-800">
-          Verarbeitete Daten
+          {t("legal.privacy.dataTitle")}
         </h2>
         <ul className="list-disc space-y-2 pl-5">
-          <li>Kontakt- und Inhaltsdaten, die du aktiv eingibst.</li>
-          <li>Nutzungsdaten zur Sicherstellung der Website-Funktion.</li>
-          <li>Server-Logfiles zur technischen Analyse und Sicherheit.</li>
+          {list.legal.privacy.dataItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
       </section>
 
       <section className="space-y-3 text-sm text-slate-600">
-        <h2 className="text-base font-semibold text-slate-800">Deine Rechte</h2>
-        <p>
-          Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung,
-          Einschränkung der Verarbeitung sowie Datenübertragbarkeit. Außerdem
-          kannst du der Verarbeitung widersprechen.
-        </p>
-        <p>
-          Hinweis: Ergänze hier deine tatsächlichen Prozesse (z. B. Hosting,
-          Tracking, Newsletter) und die dazugehörigen Informationen.
-        </p>
+        <h2 className="text-base font-semibold text-slate-800">
+          {t("legal.privacy.rightsTitle")}
+        </h2>
+        <p>{t("legal.privacy.rightsBody")}</p>
+        <p>{t("legal.privacy.rightsNote")}</p>
       </section>
     </main>
   );
