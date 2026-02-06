@@ -7,6 +7,29 @@ import { ItineraryList } from "./ItineraryList";
 import { ResultCard } from "./ResultCard";
 import { useI18n, useTranslations } from "../lib/i18n";
 import { resolveDurationLabel, translateOption } from "../lib/i18n-data";
+import { AffiliateButton } from "@/src/components/affiliate/AffiliateButton";
+import { AffiliateDisclosure } from "@/src/components/affiliate/AffiliateDisclosure";
+import type {
+  AffiliateContext,
+  Partner,
+  Travelers,
+} from "@/src/lib/affiliate/partners";
+
+const resolveTravelers = (
+  travelersLabel: string,
+  childrenCount: number
+): Travelers | undefined => {
+  if (!travelersLabel) return undefined;
+
+  const normalized = travelersLabel.toLowerCase();
+  if (normalized.includes("solo")) return { adults: 1, children: 0 };
+  if (normalized.includes("couple")) return { adults: 2, children: 0 };
+  if (normalized.includes("family")) {
+    return { adults: 2, children: Math.max(childrenCount, 0) };
+  }
+
+  return { adults: 2, children: Math.max(childrenCount, 0) };
+};
 
 export function ResultPage() {
   const { result, answers } = usePlan();
@@ -55,6 +78,20 @@ export function ResultPage() {
     .filter(Boolean)
     .join(" · ");
 
+  const travelers = resolveTravelers(answers.travelers, answers.childrenCount);
+  const affiliateContext: AffiliateContext = {
+    destination: {
+      city: answers.destination,
+    },
+    travelers,
+    currency: "CHF",
+    language: locale,
+  };
+
+  const bookingPartner: Partner = "booking";
+  const activityPartner: Partner = "getyourguide";
+  const carPartner: Partner = "discovercars";
+
   return (
     <main className="min-h-screen px-6 py-12">
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-8">
@@ -92,6 +129,29 @@ export function ResultPage() {
 
         <ResultCard title={t("result.itineraryTitle")}>
           <ItineraryList items={result.itinerary} />
+        </ResultCard>
+
+        <ResultCard title="Buchen & vergleichen">
+          <div className="space-y-4">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <AffiliateButton
+                partner={bookingPartner}
+                ctx={affiliateContext}
+                label="Unterkunft ansehen"
+              />
+              <AffiliateButton
+                partner={activityPartner}
+                ctx={affiliateContext}
+                label="Aktivität buchen"
+              />
+              <AffiliateButton
+                partner={carPartner}
+                ctx={affiliateContext}
+                label="Mietwagen vergleichen"
+              />
+            </div>
+            <AffiliateDisclosure />
+          </div>
         </ResultCard>
 
         <ResultCard title={t("result.notesTitle")}>
