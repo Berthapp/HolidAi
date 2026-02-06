@@ -40,7 +40,10 @@ function LanguageMenu({ labelForLocale, className }: LanguageMenuProps) {
   const currentLabel = labelForLocale(locale);
 
   return (
-    <div ref={menuRef} className={`relative ${className ?? ""}`.trim()}>
+    <div
+      ref={menuRef}
+      className={`relative z-50 ${className ?? ""}`.trim()}
+    >
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
@@ -67,7 +70,7 @@ function LanguageMenu({ labelForLocale, className }: LanguageMenuProps) {
       {isOpen ? (
         <div
           role="listbox"
-          className="absolute right-0 z-20 mt-2 w-52 rounded-2xl border border-slate-200 bg-white/95 p-1 shadow-lg backdrop-blur"
+          className="absolute right-0 z-50 mt-2 w-52 rounded-2xl border border-slate-200 bg-white/95 p-1 shadow-lg backdrop-blur"
         >
           {supportedLocales.map((option) => {
             const isActive = option === locale;
@@ -81,10 +84,10 @@ function LanguageMenu({ labelForLocale, className }: LanguageMenuProps) {
                   setLocale(option);
                   setIsOpen(false);
                 }}
-                className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-[0.65rem] font-semibold uppercase tracking-[0.2em] transition sm:text-xs ${
+                className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2 text-left text-[0.65rem] font-semibold uppercase tracking-[0.2em] transition sm:text-xs ${
                   isActive
-                    ? "bg-emerald-50 text-emerald-700"
-                    : "text-slate-700 hover:bg-slate-100"
+                    ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                    : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                 }`}
               >
                 <span>{labelForLocale(option)}</span>
