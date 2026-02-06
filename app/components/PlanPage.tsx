@@ -136,6 +136,12 @@ export function PlanPage() {
     setCurrentStep((prev) => Math.max(prev - 1, 0));
   };
 
+  const handleStepClick = (index: number) => {
+    if (index > currentStep) return;
+    setError("");
+    setCurrentStep(index);
+  };
+
   const handleSubmit = async () => {
     if (!canProceed) {
       setError(t("plan.errors.selectOptionFinish"));
@@ -181,7 +187,11 @@ export function PlanPage() {
           <h1 className="text-3xl font-semibold text-slate-900">
             {t("plan.title")}
           </h1>
-          <StepProgress steps={steps} currentStep={currentStep} />
+          <StepProgress
+            steps={steps}
+            currentStep={currentStep}
+            onStepClick={handleStepClick}
+          />
         </header>
 
         <section className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm">
@@ -204,7 +214,7 @@ export function PlanPage() {
               <OptionChips
                 label={t("plan.duration.choose")}
                 options={durationOptions}
-                selected={answers.duration}
+                value={answers.duration}
                 onChange={(value) => updateAnswer("duration", value)}
               />
               <PrimaryInput
@@ -222,7 +232,7 @@ export function PlanPage() {
             <OptionChips
               label={t("plan.style.question")}
               options={travelStyleOptions}
-              selected={answers.travelStyle}
+              value={answers.travelStyle}
               onChange={(value) => updateAnswer("travelStyle", value)}
             />
           ) : null}
@@ -231,7 +241,7 @@ export function PlanPage() {
             <OptionChips
               label={t("plan.budget.question")}
               options={budgetOptions}
-              selected={answers.budget}
+              value={answers.budget}
               onChange={(value) => updateAnswer("budget", value)}
             />
           ) : null}
@@ -240,7 +250,7 @@ export function PlanPage() {
             <OptionChips
               label={t("plan.travelers.question")}
               options={travelerOptions}
-              selected={answers.travelers}
+              value={answers.travelers}
               onChange={(value) => updateAnswer("travelers", value)}
             />
           ) : null}
@@ -254,7 +264,7 @@ export function PlanPage() {
                 { label: t("plan.season.spring"), value: "spring" },
                 { label: t("plan.season.autumn"), value: "autumn" },
               ]}
-              selected={answers.season}
+              value={answers.season}
               onChange={(value) => updateAnswer("season", value)}
             />
           ) : null}
@@ -267,7 +277,7 @@ export function PlanPage() {
             type="button"
             onClick={handleBack}
             disabled={currentStep === 0}
-            className="rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-full border-2 border-teal-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 transition hover:border-teal-400 hover:bg-teal-50 disabled:cursor-not-allowed disabled:border-slate-200 disabled:text-slate-400 disabled:opacity-60"
           >
             {t("plan.buttons.back")}
           </button>
