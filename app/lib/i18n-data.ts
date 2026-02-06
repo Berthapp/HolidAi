@@ -135,8 +135,7 @@ export const translations = {
         Relax: "Entspannung",
         Nature: "Natur",
         City: "Stadt",
-        Family: "Familie",
-        Couple: "Paar",
+        Flexible: "Flexibel",
         Backpacking: "Rucksackreise",
       },
       budget: {
@@ -341,8 +340,7 @@ export const translations = {
         Relax: "Détente",
         Nature: "Nature",
         City: "Ville",
-        Family: "Famille",
-        Couple: "Couple",
+        Flexible: "Flexibel",
         Backpacking: "Sac à dos",
       },
       budget: {
@@ -547,8 +545,7 @@ export const translations = {
         Relax: "Relax",
         Nature: "Natura",
         City: "Città",
-        Family: "Famiglia",
-        Couple: "Coppia",
+        Flexible: "Flessibile",
         Backpacking: "Zaino in spalla",
       },
       budget: {
@@ -754,8 +751,7 @@ export const translations = {
         Relax: "Relax",
         Nature: "Natura",
         City: "Citad",
-        Family: "Famiglia",
-        Couple: "Coppia",
+        Flexible: "Flexibel",
         Backpacking: "Backpacking",
       },
       budget: {
@@ -959,8 +955,7 @@ export const translations = {
         Relax: "Relax",
         Nature: "Nature",
         City: "City",
-        Family: "Family",
-        Couple: "Couple",
+        Flexible: "Flexible",
         Backpacking: "Backpacking",
       },
       budget: {
