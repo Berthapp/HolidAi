@@ -8,6 +8,7 @@ import { PlanProvider } from "./lib/plan-store";
 import { Footer } from "./components/Footer";
 import { I18nProvider } from "./lib/i18n";
 import { LanguageSelector } from "./components/LanguageSelector";
+import { ServiceWorkerRegistrar } from "./components/ServiceWorkerRegistrar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -155,6 +156,7 @@ export default function RootLayout({
             </div>
           </PlanProvider>
         </I18nProvider>
+        <ServiceWorkerRegistrar />
       </body>
     </html>
   );
