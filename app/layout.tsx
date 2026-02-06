@@ -123,7 +123,7 @@ export default function RootLayout({
                     <Image
                       src="/logo.png"
                       alt="HolidAI"
-                      width={32}
+                      width={56}
                       height={32}
                       className="h-8 w-14"
                     />
