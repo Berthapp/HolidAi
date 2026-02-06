@@ -4,8 +4,8 @@ import type { Locale } from "../../lib/i18n-data";
 import type { PlanRequest, TravelPlanResponse } from "../../lib/types";
 import { rateLimit } from "../../lib/rate-limit";
 
-const usedLLM = "openai" as const;
-type LlmProvider = typeof usedLLM | "anthropic" | "google";
+type LlmProvider = "openai" | "anthropic" | "google";
+const usedLLM: LlmProvider = "openai";
 
 const requestSchema = z.object({
   locale: z.enum(["de", "en", "fr", "it", "rm"]).optional().default("de"),
