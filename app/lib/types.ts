@@ -17,7 +17,7 @@ export type PlanningAnswers = {
   duration: string;
   travelStyle: TravelStyle | "";
   budget: BudgetFeeling | "";
-  travelers: TravelersGroup | "";
+  travelers: string;
   childrenCount: number;
   season: string;
 };

@@ -118,6 +118,13 @@ export function PlanPage() {
     [locale]
   );
 
+  const travelersInputValue = useMemo(() => {
+    if (travelerValues.includes(answers.travelers as TravelersGroup)) {
+      return translateOption(locale, "travelers", answers.travelers);
+    }
+    return answers.travelers;
+  }, [answers.travelers, locale]);
+
   const steps = useMemo(
     () => [
       { id: "destination", title: t("plan.steps.destination") },
@@ -275,6 +282,18 @@ export function PlanPage() {
                 onChange={(value) => {
                   updateAnswer("travelers", value);
                   if (value !== "Family + kids") {
+                    updateAnswer("childrenCount", 0);
+                  }
+                }}
+              />
+              <PrimaryInput
+                label={t("plan.travelers.customLabel")}
+                placeholder={t("plan.travelers.customPlaceholder")}
+                value={travelersInputValue}
+                onChange={(event) => {
+                  const nextValue = event.target.value;
+                  updateAnswer("travelers", nextValue);
+                  if (nextValue !== "Family + kids") {
                     updateAnswer("childrenCount", 0);
                   }
                 }}

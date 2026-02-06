@@ -73,6 +73,8 @@ export const translations = {
       },
       travelers: {
         question: "Wer reist mit?",
+        customLabel: "Oder eigene Angabe",
+        customPlaceholder: "z. B. 2 Erwachsene, 1 Kind (2 Jahre)",
         childrenLabel: "Wie viele Kinder reisen mit?",
         childrenPlaceholder: "z. B. 2",
         childrenHint: "Wir berücksichtigen die Anzahl für Budget & Programm.",
@@ -278,6 +280,8 @@ export const translations = {
       },
       travelers: {
         question: "Qui voyage avec vous ?",
+        customLabel: "Ou saisie libre",
+        customPlaceholder: "p. ex. 2 adultes, 1 enfant (2 ans)",
         childrenLabel: "Combien d'enfants voyagent avec vous ?",
         childrenPlaceholder: "p. ex. 2",
         childrenHint: "Nous en tenons compte pour le budget et le programme.",
@@ -483,6 +487,8 @@ export const translations = {
       },
       travelers: {
         question: "Chi viaggia con te?",
+        customLabel: "Oppure inserisci liberamente",
+        customPlaceholder: "es. 2 adulti, 1 bambino (2 anni)",
         childrenLabel: "Quanti bambini viaggiano con te?",
         childrenPlaceholder: "es. 2",
         childrenHint: "Lo consideriamo per budget e programma.",
@@ -688,6 +694,8 @@ export const translations = {
       },
       travelers: {
         question: "Tgi viagia cun tai?",
+        customLabel: "U ina atgna indicaziun",
+        customPlaceholder: "p.ex. 2 persunas creschidas, 1 uffant (2 onns)",
         childrenLabel: "Dumbraziuns d'uffants che viagian cun tai?",
         childrenPlaceholder: "p.ex. 2",
         childrenHint: "Nus resguardain quai per budget e program.",
@@ -894,6 +902,8 @@ export const translations = {
       },
       travelers: {
         question: "Who is traveling with you?",
+        customLabel: "Or enter your own",
+        customPlaceholder: "e.g. 2 adults, 1 child (age 2)",
         childrenLabel: "How many kids are traveling with you?",
         childrenPlaceholder: "e.g. 2",
         childrenHint: "We factor this into budget and activities.",
