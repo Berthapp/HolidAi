@@ -22,10 +22,10 @@ export function OptionChips({ options, value, onChange }: OptionChipsProps) {
             key={option.value}
             type="button"
             onClick={() => onChange(option.value)}
-            className={`rounded-full border px-5 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-slate-200 ${
+            className={`rounded-full border px-5 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-teal-200 ${
               isActive
-                ? "border-slate-900 bg-slate-900 text-white"
-                : "border-slate-200 bg-white text-slate-600 hover:border-slate-400"
+                ? "border-teal-700 bg-teal-700 text-white"
+                : "border-slate-200 bg-white text-slate-600 hover:border-teal-300"
             }`}
           >
             <span>{option.label}</span>
