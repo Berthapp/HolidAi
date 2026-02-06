@@ -75,9 +75,14 @@ export const translations = {
         question: "Wer reist mit?",
       },
       season: {
+        question: "Welche Saison passt dir?",
         label: "Monat / Saison (optional)",
         placeholder: "z. B. Mai oder Herbst",
         hint: "Hilft uns bei Preisen & Wetter.",
+        summer: "Sommer",
+        winter: "Winter",
+        spring: "Frühling",
+        autumn: "Herbst",
       },
       buttons: {
         back: "Zurück",
@@ -264,9 +269,14 @@ export const translations = {
         question: "Qui voyage avec vous ?",
       },
       season: {
+        question: "Quelle saison préférez-vous ?",
         label: "Mois / saison (optionnel)",
         placeholder: "ex. mai ou automne",
         hint: "Nous aide pour les prix et la météo.",
+        summer: "Été",
+        winter: "Hiver",
+        spring: "Printemps",
+        autumn: "Automne",
       },
       buttons: {
         back: "Retour",
@@ -453,9 +463,14 @@ export const translations = {
         question: "Chi viaggia con te?",
       },
       season: {
+        question: "Quale stagione preferisci?",
         label: "Mese / stagione (opzionale)",
         placeholder: "es. maggio o autunno",
         hint: "Ci aiuta con prezzi e meteo.",
+        summer: "Estate",
+        winter: "Inverno",
+        spring: "Primavera",
+        autumn: "Autunno",
       },
       buttons: {
         back: "Indietro",
@@ -642,9 +657,14 @@ export const translations = {
         question: "Tgi viagia cun tai?",
       },
       season: {
+        question: "Tge stagiun ta stat bain?",
         label: "Mais / stagiun (opziunala)",
         placeholder: "p.ex. matg u atun",
         hint: "Ans gida tar prets e l'aura.",
+        summer: "Stad",
+        winter: "Enviern",
+        spring: "Primavaira",
+        autumn: "Atun",
       },
       buttons: {
         back: "Enavos",
@@ -832,9 +852,14 @@ export const translations = {
         question: "Who is traveling with you?",
       },
       season: {
+        question: "Which season suits you?",
         label: "Month / season (optional)",
         placeholder: "e.g. May or autumn",
         hint: "Helps us with prices & weather.",
+        summer: "Summer",
+        winter: "Winter",
+        spring: "Spring",
+        autumn: "Autumn",
       },
       buttons: {
         back: "Back",
