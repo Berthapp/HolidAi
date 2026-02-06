@@ -1,24 +1,24 @@
 "use client";
 
-type Option = {
+type Option<T extends string> = {
   label: string;
-  value: string;
+  value: T;
   description?: string;
 };
 
-type OptionChipsProps = {
+type OptionChipsProps<T extends string> = {
   label?: string;
-  options: Option[];
-  value: string;
-  onChange: (value: string) => void;
+  options: ReadonlyArray<Option<T>>;
+  value: T | "";
+  onChange: (value: T) => void;
 };
 
-export function OptionChips({
+export function OptionChips<T extends string>({
   label,
   options,
   value,
   onChange,
-}: OptionChipsProps) {
+}: OptionChipsProps<T>) {
   return (
     <div className="space-y-3">
       {label ? (
