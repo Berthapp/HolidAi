@@ -162,6 +162,9 @@ export const translations = {
           "Hosting der Website über Vercel (Vercel Inc.).",
           "Domain-Hosting über Hostpoint AG (Schweiz).",
         ],
+        aiTitle: "Einsatz von KI-Diensten",
+        aiBody:
+          "Für die Erstellung von Reisevorschlägen kann ein externer KI-Dienst eingesetzt werden. Bitte ergänze hier den konkreten Anbieter, die Zwecke der Verarbeitung sowie die Rechtsgrundlage.",
         rightsTitle: "Deine Rechte",
         rightsBody:
           "Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Datenübertragbarkeit. Außerdem kannst du der Verarbeitung widersprechen.",
@@ -348,6 +351,9 @@ export const translations = {
           "Hébergement du site via Vercel (Vercel Inc.).",
           "Hébergement du domaine via Hostpoint AG (Suisse).",
         ],
+        aiTitle: "Utilisation de services d'IA",
+        aiBody:
+          "Pour créer des propositions de voyage, un service d'IA externe peut être utilisé. Merci de compléter ici le fournisseur exact, les finalités du traitement et la base légale.",
         rightsTitle: "Vos droits",
         rightsBody:
           "Vous avez à tout moment le droit d'accès, de rectification, de suppression, de limitation du traitement ainsi que de portabilité des données. Vous pouvez également vous opposer au traitement.",
@@ -534,6 +540,9 @@ export const translations = {
           "Hosting del sito tramite Vercel (Vercel Inc.).",
           "Hosting del dominio tramite Hostpoint AG (Svizzera).",
         ],
+        aiTitle: "Uso di servizi di IA",
+        aiBody:
+          "Per creare proposte di viaggio può essere utilizzato un servizio di IA esterno. Completa qui il provider specifico, le finalità del trattamento e la base giuridica.",
         rightsTitle: "I tuoi diritti",
         rightsBody:
           "Hai sempre il diritto di accesso, rettifica, cancellazione, limitazione del trattamento e portabilità dei dati. Puoi inoltre opporti al trattamento.",
@@ -721,6 +730,9 @@ export const translations = {
           "Hosting da la website via Vercel (Vercel Inc.).",
           "Hosting da la domain via Hostpoint AG (Svizra).",
         ],
+        aiTitle: "Utilisaziun da servetschs d'IA",
+        aiBody:
+          "Per crear propostas da viadi po vegnir utilisà in servetsch d'IA extern. Per plaschair cumplementescha qua il furnitur exact, ils intents dal tractament e la basa legala.",
         rightsTitle: "Tes dretgs",
         rightsBody:
           "Ti has adina il dretg d'infurmaziun, rectificaziun, stizzar, limitar il tractament sco er transferibilitad da datas. Ti pos er far opposiziun al tractament.",
@@ -906,6 +918,9 @@ export const translations = {
           "Website hosting via Vercel (Vercel Inc.).",
           "Domain hosting via Hostpoint AG (Switzerland).",
         ],
+        aiTitle: "Use of AI services",
+        aiBody:
+          "An external AI service may be used to generate travel suggestions. Please add the specific provider, processing purposes, and legal basis here.",
         rightsTitle: "Your rights",
         rightsBody:
           "You always have the right to access, rectify, delete, restrict processing, and data portability. You can also object to processing.",
