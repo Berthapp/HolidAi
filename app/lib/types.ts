@@ -11,9 +11,12 @@ export type BudgetFeeling = "Low" | "Medium" | "Comfort";
 
 export type TravelersGroup = "Solo" | "Couple" | "Family + kids";
 
+export type TravelMode = "Car" | "Train" | "Flight" | "Ferry" | "Other";
+
 export type PlanningAnswers = {
   destination: string;
   duration: string;
+  travelMode: TravelMode | "";
   travelStyle: TravelStyle | "";
   budget: BudgetFeeling | "";
   travelers: string;
@@ -52,6 +55,7 @@ export const examplePlanRequest: PlanRequest = {
   answers: {
     destination: "Lisbon",
     duration: "5-7 Tage",
+    travelMode: "Flight",
     travelStyle: "City",
     budget: "Medium",
     travelers: "Couple",

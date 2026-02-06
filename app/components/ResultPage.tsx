@@ -43,6 +43,17 @@ export function ResultPage() {
   const budgetLabel = answers.budget
     ? translateOption(locale, "budget", answers.budget)
     : "";
+  const travelModeLabel = answers.travelMode
+    ? translateOption(locale, "travelMode", answers.travelMode)
+    : "";
+  const basedOnSummary = [
+    travelersLabel,
+    travelStyleLabel,
+    budgetLabel,
+    travelModeLabel,
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <main className="min-h-screen px-6 py-12">
@@ -55,11 +66,7 @@ export function ResultPage() {
             {t("result.headline", { destination: answers.destination })}
           </h1>
           <p className="text-sm text-slate-500">
-            {t("result.basedOn", {
-              travelers: travelersLabel,
-              travelStyle: travelStyleLabel,
-              budget: budgetLabel,
-            })}
+            {t("result.basedOn", { summary: basedOnSummary })}
           </p>
         </header>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { PrimaryInput } from "./PrimaryInput";
@@ -18,6 +18,7 @@ import type {
   PlanRequest,
   PlanningAnswers,
   TravelPlanResponse,
+  TravelMode,
   TravelStyle,
   TravelersGroup,
 } from "../lib/types";
@@ -45,12 +46,22 @@ const budgetValues: BudgetFeeling[] = ["Low", "Medium", "Comfort"];
 
 const travelerValues: TravelersGroup[] = ["Solo", "Couple", "Family + kids"];
 
+const travelModeValues: TravelMode[] = [
+  "Car",
+  "Train",
+  "Flight",
+  "Ferry",
+  "Other",
+];
+
 const isStepValid = (stepId: string, answers: PlanningAnswers) => {
   switch (stepId) {
     case "destination":
       return answers.destination.trim().length > 0;
     case "duration":
       return answers.duration.trim().length > 0;
+    case "travelMode":
+      return answers.travelMode.trim().length > 0;
     case "style":
       return answers.travelStyle.trim().length > 0;
     case "budget":
@@ -70,7 +81,7 @@ const isStepValid = (stepId: string, answers: PlanningAnswers) => {
 
 export function PlanPage() {
   const router = useRouter();
-  const { answers, updateAnswer, setResult } = usePlan();
+  const { answers, updateAnswer, setResult, isHydrated } = usePlan();
   const { locale } = useI18n();
   const t = useTranslations();
   const translationList = useTranslationList();
@@ -78,6 +89,7 @@ export function PlanPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const hasInitializedStep = useRef(false);
 
   const loadingMessages = useMemo(() => {
     const messages = translationList.plan?.loading?.messages;
@@ -92,6 +104,14 @@ export function PlanPage() {
     }, 2400);
     return () => window.clearInterval(interval);
   }, [isSubmitting, loadingMessages]);
+
+  useEffect(() => {
+    if (!isHydrated || hasInitializedStep.current) return;
+    if (answers.destination.trim()) {
+      setCurrentStep(1);
+    }
+    hasInitializedStep.current = true;
+  }, [answers.destination, isHydrated]);
 
   const durationOptions = useMemo(
     () =>
@@ -129,6 +149,15 @@ export function PlanPage() {
     [locale]
   );
 
+  const travelModeOptions = useMemo(
+    () =>
+      travelModeValues.map((value) => ({
+        label: translateOption(locale, "travelMode", value),
+        value,
+      })),
+    [locale]
+  );
+
   const travelersInputValue = useMemo(() => {
     if (travelerValues.includes(answers.travelers as TravelersGroup)) {
       return translateOption(locale, "travelers", answers.travelers);
@@ -136,10 +165,18 @@ export function PlanPage() {
     return answers.travelers;
   }, [answers.travelers, locale]);
 
+  const travelModeInputValue = useMemo(() => {
+    if (travelModeValues.includes(answers.travelMode as TravelMode)) {
+      return translateOption(locale, "travelMode", answers.travelMode);
+    }
+    return answers.travelMode;
+  }, [answers.travelMode, locale]);
+
   const steps = useMemo(
     () => [
       { id: "destination", title: t("plan.steps.destination") },
       { id: "duration", title: t("plan.steps.duration") },
+      { id: "travelMode", title: t("plan.steps.travelMode") },
       { id: "style", title: t("plan.steps.style") },
       { id: "budget", title: t("plan.steps.budget") },
       { id: "travelers", title: t("plan.steps.travelers") },
@@ -299,6 +336,25 @@ export function PlanPage() {
                 value={resolveDurationLabel(locale, answers.duration)}
                 onChange={(event) =>
                   updateAnswer("duration", event.target.value)
+                }
+              />
+            </div>
+          ) : null}
+
+          {step.id === "travelMode" ? (
+            <div className="space-y-6">
+              <OptionChips
+                label={t("plan.travelMode.question")}
+                options={travelModeOptions}
+                value={answers.travelMode}
+                onChange={(value) => updateAnswer("travelMode", value)}
+              />
+              <PrimaryInput
+                label={t("plan.travelMode.customLabel")}
+                placeholder={t("plan.travelMode.customPlaceholder")}
+                value={travelModeInputValue}
+                onChange={(event) =>
+                  updateAnswer("travelMode", event.target.value)
                 }
               />
             </div>

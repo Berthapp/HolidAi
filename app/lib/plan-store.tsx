@@ -15,6 +15,7 @@ const STORAGE_KEY = "holidai-plan";
 export const defaultAnswers: PlanningAnswers = {
   destination: "",
   duration: "",
+  travelMode: "",
   travelStyle: "",
   budget: "",
   travelers: "",

@@ -50,6 +50,7 @@ export const translations = {
       steps: {
         destination: "Ziel",
         duration: "Dauer",
+        travelMode: "Anreise",
         style: "Stil",
         budget: "Budget",
         travelers: "Reisende",
@@ -64,6 +65,11 @@ export const translations = {
         choose: "Wähle eine Dauer",
         customLabel: "Oder eigene Dauer",
         customPlaceholder: "z. B. 10 Tage",
+      },
+      travelMode: {
+        question: "Wie möchtest du reisen?",
+        customLabel: "Oder eigene Angabe",
+        customPlaceholder: "z. B. Campervan oder Nachtzug",
       },
       style: {
         question: "Welcher Reisestil passt zu dir?",
@@ -121,7 +127,7 @@ export const translations = {
       emptyCta: "Zum Planer",
       label: "Ergebnis",
       headline: "Dein {destination} Plan ist bereit.",
-      basedOn: "Basierend auf {travelers} · {travelStyle} · {budget}",
+      basedOn: "Basierend auf {summary}",
       durationTitle: "Empfohlene Dauer: {duration}",
       durationNote:
         "Wir haben eine ausgewogene Mischung aus Highlights und Erholung eingeplant.",
@@ -153,6 +159,13 @@ export const translations = {
         Solo: "Allein",
         Couple: "Paar",
         "Family + kids": "Familie + Kinder",
+      },
+      travelMode: {
+        Car: "Auto",
+        Train: "Zug",
+        Flight: "Flugzeug",
+        Ferry: "Fähre",
+        Other: "Sonstiges",
       },
     },
     legal: {
@@ -261,6 +274,7 @@ export const translations = {
       steps: {
         destination: "Destination",
         duration: "Durée",
+        travelMode: "Transport",
         style: "Style",
         budget: "Budget",
         travelers: "Voyageurs",
@@ -275,6 +289,11 @@ export const translations = {
         choose: "Choisissez une durée",
         customLabel: "Ou votre propre durée",
         customPlaceholder: "ex. 10 jours",
+      },
+      travelMode: {
+        question: "Comment souhaitez-vous voyager ?",
+        customLabel: "Ou saisie libre",
+        customPlaceholder: "ex. van aménagé ou train de nuit",
       },
       style: {
         question: "Quel style de voyage vous convient ?",
@@ -332,7 +351,7 @@ export const translations = {
       emptyCta: "Aller au planificateur",
       label: "Résultat",
       headline: "Votre plan pour {destination} est prêt.",
-      basedOn: "Basé sur {travelers} · {travelStyle} · {budget}",
+      basedOn: "Basé sur {summary}",
       durationTitle: "Durée recommandée : {duration}",
       durationNote:
         "Nous avons prévu un mélange équilibré de points forts et de repos.",
@@ -364,6 +383,13 @@ export const translations = {
         Solo: "Solo",
         Couple: "Couple",
         "Family + kids": "Famille + enfants",
+      },
+      travelMode: {
+        Car: "Voiture",
+        Train: "Train",
+        Flight: "Avion",
+        Ferry: "Ferry",
+        Other: "Autre",
       },
     },
     legal: {
@@ -472,6 +498,7 @@ export const translations = {
       steps: {
         destination: "Destinazione",
         duration: "Durata",
+        travelMode: "Trasporto",
         style: "Stile",
         budget: "Budget",
         travelers: "Viaggiatori",
@@ -486,6 +513,11 @@ export const translations = {
         choose: "Scegli una durata",
         customLabel: "Oppure inserisci una durata personalizzata",
         customPlaceholder: "es. 10 giorni",
+      },
+      travelMode: {
+        question: "Come vuoi viaggiare?",
+        customLabel: "Oppure inserisci il tuo mezzo",
+        customPlaceholder: "es. camper o treno notturno",
       },
       style: {
         question: "Quale stile di viaggio fa per te?",
@@ -543,7 +575,7 @@ export const translations = {
       emptyCta: "Vai al planner",
       label: "Risultato",
       headline: "Il tuo piano per {destination} è pronto.",
-      basedOn: "Basato su {travelers} · {travelStyle} · {budget}",
+      basedOn: "Basato su {summary}",
       durationTitle: "Durata consigliata: {duration}",
       durationNote:
         "Abbiamo pianificato un mix equilibrato di highlights e relax.",
@@ -575,6 +607,13 @@ export const translations = {
         Solo: "Solo",
         Couple: "Coppia",
         "Family + kids": "Famiglia + bambini",
+      },
+      travelMode: {
+        Car: "Auto",
+        Train: "Treno",
+        Flight: "Aereo",
+        Ferry: "Traghetto",
+        Other: "Altro",
       },
     },
     legal: {
@@ -683,6 +722,7 @@ export const translations = {
       steps: {
         destination: "Destinaziun",
         duration: "Durada",
+        travelMode: "Viadi",
         style: "Stil",
         budget: "Budget",
         travelers: "Viagiaturs",
@@ -697,6 +737,11 @@ export const translations = {
         choose: "Tscherna ina durada",
         customLabel: "U ina durada persunala",
         customPlaceholder: "p.ex. 10 dis",
+      },
+      travelMode: {
+        question: "Co vuls ti viagiar?",
+        customLabel: "U ina atgna indicaziun",
+        customPlaceholder: "p.ex. camper u tren da notg",
       },
       style: {
         question: "Tge stil da viadi ta convena?",
@@ -755,7 +800,7 @@ export const translations = {
       emptyCta: "Tar il planisader",
       label: "Resultat",
       headline: "Tes plan per {destination} è pront.",
-      basedOn: "Basà sin {travelers} · {travelStyle} · {budget}",
+      basedOn: "Basà sin {summary}",
       durationTitle: "Durada recumandada: {duration}",
       durationNote:
         "Nus avain planisà ina maschaida equilibrada da highlights e ruaus.",
@@ -787,6 +832,13 @@ export const translations = {
         Solo: "Solo",
         Couple: "Coppia",
         "Family + kids": "Famiglia + uffants",
+      },
+      travelMode: {
+        Car: "Auto",
+        Train: "Tren",
+        Flight: "Avion",
+        Ferry: "Ferry",
+        Other: "Auter",
       },
     },
     legal: {
@@ -895,6 +947,7 @@ export const translations = {
       steps: {
         destination: "Destination",
         duration: "Duration",
+        travelMode: "Transport",
         style: "Style",
         budget: "Budget",
         travelers: "Travelers",
@@ -909,6 +962,11 @@ export const translations = {
         choose: "Choose a duration",
         customLabel: "Or enter your own duration",
         customPlaceholder: "e.g. 10 days",
+      },
+      travelMode: {
+        question: "How would you like to travel?",
+        customLabel: "Or enter your own",
+        customPlaceholder: "e.g. camper van or night train",
       },
       style: {
         question: "Which travel style fits you?",
@@ -965,7 +1023,7 @@ export const translations = {
       emptyCta: "Go to planner",
       label: "Result",
       headline: "Your {destination} plan is ready.",
-      basedOn: "Based on {travelers} · {travelStyle} · {budget}",
+      basedOn: "Based on {summary}",
       durationTitle: "Recommended duration: {duration}",
       durationNote: "We planned a balanced mix of highlights and downtime.",
       costTitle: "Cost estimate",
@@ -996,6 +1054,13 @@ export const translations = {
         Solo: "Solo",
         Couple: "Couple",
         "Family + kids": "Family + kids",
+      },
+      travelMode: {
+        Car: "Car",
+        Train: "Train",
+        Flight: "Flight",
+        Ferry: "Ferry",
+        Other: "Other",
       },
     },
     legal: {
@@ -1095,7 +1160,7 @@ export const formatMessage = (message: string, values?: TranslationValues) => {
 
 export const translateOption = (
   locale: Locale,
-  category: "duration" | "travelStyle" | "budget" | "travelers",
+  category: "duration" | "travelStyle" | "budget" | "travelers" | "travelMode",
   value: string
 ) => {
   const message = getNestedValue(
