@@ -265,7 +265,7 @@ export function PlanPage() {
             disabled={currentStep === 0}
             className="rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {t("plan.back")}
+            {t("plan.buttons.back")}
           </button>
           <button
             type="button"
@@ -273,7 +273,7 @@ export function PlanPage() {
             disabled={!canProceed || isSubmitting}
             className="rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-teal-600 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {isLastStep ? t("plan.finish") : t("plan.next")}
+            {isLastStep ? t("plan.buttons.submit") : t("plan.buttons.next")}
           </button>
         </div>
       </div>
