@@ -83,7 +83,7 @@ const generatePlan = async (
   const prompt = buildPrompt(request);
   const systemPrompt =
     "You respond with JSON only. Do not include markdown or code fences.";
-  const temperature = 0.6;
+  const temperature = 1;
 
   let content: string | undefined;
 
@@ -284,6 +284,7 @@ export async function POST(request: Request) {
   const locale: Locale = body.locale ?? "de";
 
   try {
+    console.log("generate")
     const response = await generatePlan({ ...body, locale });
     return NextResponse.json(response, {
       headers: {
@@ -292,6 +293,8 @@ export async function POST(request: Request) {
       },
     });
   } catch (error) {
+        console.log(error)
+
     const message =
       error instanceof Error ? error.message : "Plan generation failed.";
     return NextResponse.json(
