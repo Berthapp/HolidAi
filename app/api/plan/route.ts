@@ -212,7 +212,7 @@ const generatePlan = async (
       break;
     }
     default:
-      throw new Error(`Unsupported LLM provider: ${provider}`);
+      throw new Error(`Unsupported LLM provider: ${process.env.USED_LLM_PROVIDER}`);
   }
 
   if (!content) {
