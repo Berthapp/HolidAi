@@ -10,6 +10,7 @@ import { LanguageSelector } from "./components/LanguageSelector";
 import { ServiceWorkerRegistrar } from "./components/ServiceWorkerRegistrar";
 import { CookieConsentManager } from "./components/CookieConsentManager";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -139,6 +140,7 @@ export default function RootLayout({
         </I18nProvider>
         <ServiceWorkerRegistrar />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
