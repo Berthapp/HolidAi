@@ -1,5 +1,28 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## HolidAI MVP structure
+
+```
+app/
+  api/plan/route.ts        # Mocked plan endpoint
+  components/              # UI building blocks (inputs, cards, lists)
+  lib/
+    plan-store.tsx         # Client-side state + localStorage persistence
+    types.ts               # Flow + API types and examples
+  plan/page.tsx            # Wizard flow
+  result/page.tsx          # Final result
+  page.tsx                 # Landing page
+```
+
+## Extending the plan API with a real LLM later
+
+1. Replace `buildMockPlan` in `app/api/plan/route.ts` with an OpenAI/LLM call.
+2. Use `PlanRequest` as the input contract and ensure the model output is shaped
+   into `TravelPlanResponse` before returning.
+3. Keep the response structure stable so the `/result` UI does not change.
+4. Add streaming later by returning a `ReadableStream` from the same route if
+   you want progressive UI updates.
+
 ## Getting Started
 
 First, run the development server:
