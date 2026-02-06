@@ -45,9 +45,16 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       setLocale(stored);
       return;
     }
-    const browserLocale = window.navigator.language.startsWith("de")
-      ? "de"
-      : "en";
+    const navigatorLanguage = window.navigator.language.toLowerCase();
+    const browserLocale: Locale = navigatorLanguage.startsWith("fr")
+      ? "fr"
+      : navigatorLanguage.startsWith("it")
+      ? "it"
+      : navigatorLanguage.startsWith("rm")
+      ? "rm"
+      : navigatorLanguage.startsWith("en")
+      ? "en"
+      : "de";
     setLocale(browserLocale);
   }, []);
 
