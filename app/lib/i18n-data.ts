@@ -173,36 +173,37 @@ export const translations = {
       agb: {
         title: "Allgemeine Geschäftsbedingungen (AGB)",
         intro:
-          "Diese Allgemeinen Geschäftsbedingungen regeln die Nutzung der HolidAI Plattform. Anbieter: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Schweiz, info@holidai.ch. Mit der Nutzung unserer Services erklärst du dich mit den folgenden Bedingungen einverstanden.",
+          "Diese Allgemeinen Geschäftsbedingungen regeln die Nutzung der HolidAI Plattform (holidai.ch). Anbieter: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Schweiz, info@holidai.ch. HolidAI ist kein Reiseveranstalter und vermittelt keine Buchungen.",
         servicesTitle: "Leistungen",
         servicesBody:
-          "HolidAI stellt KI-gestützte Reisevorschläge bereit. Die bereitgestellten Informationen dienen der Orientierung und ersetzen keine verbindliche Buchungs- oder Rechtsberatung.",
+          "HolidAI erstellt KI-gestützte Reiseideen und -pläne auf Basis deiner Angaben. Die Inhalte dienen der Information; verbindliche Buchungen erfolgen ausschliesslich über Dritte.",
         liabilityTitle: "Haftung & Gewährleistung",
         liabilityBody:
-          "Wir haften nur für Schäden, die auf vorsätzlicher oder grob fahrlässiger Pflichtverletzung beruhen. Für die Aktualität der Inhalte übernehmen wir keine Gewähr.",
+          "Wir haften nur für Schäden aus vorsätzlicher oder grob fahrlässiger Pflichtverletzung. Für Inhalte externer Links, die Verfügbarkeit von Drittanbietern oder Preis- und Leistungsangaben übernehmen wir keine Gewähr.",
         liabilityNote:
-          "Hinweis: Bitte ergänze deine spezifischen Bedingungen, Preise und Leistungsbeschreibungen.",
+          "Es gilt Schweizer Recht. Gerichtsstand ist – soweit zulässig – Zizers (Schweiz). Wir können diese AGB bei Bedarf aktualisieren; es gilt die jeweils aktuelle Version auf der Website.",
       },
       privacy: {
         title: "Datenschutzerklärung",
         intro:
-          "Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Diese Erklärung informiert dich darüber, welche Daten beim Besuch von HolidAI verarbeitet werden und zu welchem Zweck.",
+          "Wir behandeln deine Personendaten gemäss dem Schweizer Datenschutzgesetz (DSG). Diese Erklärung informiert dich über Zweck, Umfang und Empfänger der Bearbeitung.",
         contact:
           "Verantwortliche Stelle: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Schweiz. Kontakt: info@holidai.ch.",
         dataTitle: "Verarbeitete Daten",
         dataItems: [
-          "Daten, die du aktiv eingibst (z. B. Kontakt- oder Inhaltsdaten).",
-          "Nutzungs- und Zugriffsdaten (z. B. IP-Adresse, Browsertyp) zur Sicherstellung der Website-Funktion.",
-          "Server-Logfiles zu Betrieb, Analyse und Sicherheit.",
-          "Hosting der Website über Vercel (Vercel Inc.).",
-          "Domain-Hosting über Hostpoint AG (Schweiz).",
+          "Angaben, die du im Planer eingibst (z. B. Reiseziel, Dauer, Präferenzen, Freitext).",
+          "Nutzungs- und Zugriffsdaten (z. B. IP-Adresse, Geräte- und Browserinformationen) sowie Server-Logfiles.",
+          "Cookies zur Speicherung deiner Einwilligung (Consent).",
+          "Webanalyse via Google Analytics (nur mit Einwilligung).",
+          "Schutz vor Missbrauch durch Google reCAPTCHA.",
+          "Hosting der Website über Vercel (Vercel Inc.) und Domain-Hosting über Hostpoint AG (Schweiz).",
         ],
         aiTitle: "Einsatz von KI-Diensten",
         aiBody:
-          "Für die Erstellung von Reisevorschlägen kann ein externer KI-Dienst eingesetzt werden. Bitte ergänze hier den konkreten Anbieter, die Zwecke der Verarbeitung sowie die Rechtsgrundlage.",
+          "Zur Erstellung von Reisevorschlägen nutzen wir je nach Konfiguration einen KI-Dienst (z. B. OpenAI, Anthropic oder Google). Deine Eingaben werden an den jeweiligen Anbieter übermittelt. Daten können dabei in Länder ausserhalb der Schweiz/EWR übertragen werden; wir stützen uns auf anerkannte Garantien wie Standardvertragsklauseln.",
         rightsTitle: "Deine Rechte",
         rightsBody:
-          "Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Datenübertragbarkeit. Außerdem kannst du der Verarbeitung widersprechen.",
+          "Du hast das Recht auf Auskunft, Herausgabe, Berichtigung, Löschung und Widerspruch. Zudem kannst du die Einschränkung der Bearbeitung verlangen.",
         rightsNote:
           "Für Anfragen zu deinen Rechten kontaktiere uns bitte unter info@holidai.ch.",
       },
@@ -214,7 +215,7 @@ export const translations = {
           "E-Mail: info@holidai.ch",
         responsibleTitle: "Verantwortlich für den Inhalt",
         responsibleBody:
-          "Verantwortlich nach § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Schweiz.",
+          "Verantwortlich für den Inhalt: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Schweiz.",
         responsibleNote:
           "Privatperson, Kontakt siehe oben.",
       },
@@ -397,36 +398,37 @@ export const translations = {
       agb: {
         title: "Conditions générales (CGV)",
         intro:
-          "Ces conditions générales régissent l'utilisation de la plateforme HolidAI. Fournisseur : Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Suisse, info@holidai.ch. En utilisant nos services, vous acceptez les conditions suivantes.",
+          "Ces conditions régissent l'utilisation de la plateforme HolidAI (holidai.ch). Fournisseur : Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Suisse, info@holidai.ch. HolidAI n'est pas un voyagiste et ne réalise pas de réservations.",
         servicesTitle: "Prestations",
         servicesBody:
-          "HolidAI fournit des suggestions de voyage assistées par IA. Les informations fournies sont indicatives et ne remplacent pas des conseils de réservation ou juridiques contraignants.",
+          "HolidAI fournit des idées et des plans de voyage assistés par IA à partir de vos saisies. Les contenus sont informatifs ; les réservations se font exclusivement auprès de tiers.",
         liabilityTitle: "Responsabilité et garantie",
         liabilityBody:
-          "Nous ne sommes responsables que des dommages causés par des manquements intentionnels ou par négligence grave. Nous ne garantissons pas l'actualité des contenus.",
+          "Nous ne répondons que des dommages causés par une faute intentionnelle ou une négligence grave. Aucune garantie pour les liens externes, la disponibilité des tiers ou les indications de prix et prestations.",
         liabilityNote:
-          "Note : Veuillez ajouter vos conditions spécifiques, vos tarifs et vos descriptions de service.",
+          "Le droit suisse s'applique. Le for juridique est Zizers (Suisse), dans la mesure permise. Nous pouvons mettre à jour ces conditions ; la version en ligne fait foi.",
       },
       privacy: {
         title: "Politique de confidentialité",
         intro:
-          "Nous prenons la protection de vos données personnelles très au sérieux. Cette déclaration vous informe des données traitées lors de la visite de HolidAI et de leur finalité.",
+          "Nous traitons vos données personnelles conformément à la loi fédérale suisse sur la protection des données (LPD). Cette déclaration explique la finalité, l'étendue et les destinataires du traitement.",
         contact:
           "Entité responsable : Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Suisse. Contact : info@holidai.ch.",
         dataTitle: "Données traitées",
         dataItems: [
-          "Données que vous saisissez activement (par ex. contact ou contenu).",
-          "Données d'utilisation et d'accès (par ex. adresse IP, type de navigateur) pour assurer le bon fonctionnement du site.",
-          "Fichiers journaux du serveur pour l'exploitation, l'analyse technique et la sécurité.",
-          "Hébergement du site via Vercel (Vercel Inc.).",
-          "Hébergement du domaine via Hostpoint AG (Suisse).",
+          "Informations saisies dans le planificateur (par ex. destination, durée, préférences, texte libre).",
+          "Données d'utilisation et d'accès (par ex. adresse IP, informations sur l'appareil et le navigateur) ainsi que journaux serveur.",
+          "Cookies pour mémoriser votre consentement.",
+          "Analyse d'audience via Google Analytics (uniquement avec consentement).",
+          "Protection contre les abus via Google reCAPTCHA.",
+          "Hébergement du site via Vercel (Vercel Inc.) et du domaine via Hostpoint AG (Suisse).",
         ],
         aiTitle: "Utilisation de services d'IA",
         aiBody:
-          "Pour créer des propositions de voyage, un service d'IA externe peut être utilisé. Merci de compléter ici le fournisseur exact, les finalités du traitement et la base légale.",
+          "Pour générer des suggestions de voyage, nous utilisons selon la configuration un service d'IA (par ex. OpenAI, Anthropic ou Google). Vos saisies sont transmises au prestataire concerné. Des transferts de données hors Suisse/EEE peuvent avoir lieu ; nous nous appuyons sur des garanties reconnues telles que les clauses contractuelles types.",
         rightsTitle: "Vos droits",
         rightsBody:
-          "Vous avez à tout moment le droit d'accès, de rectification, de suppression, de limitation du traitement ainsi que de portabilité des données. Vous pouvez également vous opposer au traitement.",
+          "Vous disposez d'un droit d'accès, de remise d'une copie, de rectification, d'effacement et d'opposition. Vous pouvez également demander la limitation du traitement.",
         rightsNote:
           "Pour toute demande relative à vos droits, contactez-nous à info@holidai.ch.",
       },
@@ -438,7 +440,7 @@ export const translations = {
           "E-mail : info@holidai.ch",
         responsibleTitle: "Responsable du contenu",
         responsibleBody:
-          "Responsable conformément au § 55 Abs. 2 RStV : Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Suisse.",
+          "Responsable du contenu : Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Suisse.",
         responsibleNote:
           "Privatperson, contact ci-dessus.",
       },
@@ -621,36 +623,37 @@ export const translations = {
       agb: {
         title: "Termini e condizioni",
         intro:
-          "Questi termini regolano l'utilizzo della piattaforma HolidAI. Fornitore: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Svizzera, info@holidai.ch. Utilizzando i nostri servizi accetti le seguenti condizioni.",
+          "Questi termini regolano l'utilizzo della piattaforma HolidAI (holidai.ch). Fornitore: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Svizzera, info@holidai.ch. HolidAI non è un tour operator e non effettua prenotazioni.",
         servicesTitle: "Servizi",
         servicesBody:
-          "HolidAI fornisce suggerimenti di viaggio assistiti dall'IA. Le informazioni offerte sono indicative e non sostituiscono consulenze vincolanti di prenotazione o legali.",
+          "HolidAI fornisce idee e piani di viaggio assistiti dall'IA sulla base dei tuoi input. I contenuti sono informativi; le prenotazioni avvengono esclusivamente tramite terzi.",
         liabilityTitle: "Responsabilità e garanzia",
         liabilityBody:
-          "Siamo responsabili solo per danni causati da violazioni intenzionali o gravemente negligenti. Non garantiamo l'attualità dei contenuti.",
+          "Rispondiamo solo per danni causati da violazioni intenzionali o da grave negligenza. Nessuna garanzia per link esterni, disponibilità dei terzi o indicazioni di prezzo e prestazioni.",
         liabilityNote:
-          "Nota: aggiungi qui le tue condizioni specifiche, i prezzi e le descrizioni dei servizi.",
+          "Si applica il diritto svizzero. Il foro competente è Zizers (Svizzera), nei limiti consentiti. Possiamo aggiornare questi termini; fa fede la versione più recente sul sito.",
       },
       privacy: {
         title: "Informativa sulla privacy",
         intro:
-          "Prendiamo molto sul serio la protezione dei tuoi dati personali. Questa informativa spiega quali dati vengono trattati quando visiti HolidAI e per quale scopo.",
+          "Trattiamo i tuoi dati personali in conformità con la Legge federale svizzera sulla protezione dei dati (LPD). Questa informativa spiega finalità, ambito e destinatari del trattamento.",
         contact:
           "Titolare del trattamento: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Svizzera. Contatto: info@holidai.ch.",
         dataTitle: "Dati trattati",
         dataItems: [
-          "Dati che inserisci attivamente (ad es. contatto o contenuto).",
-          "Dati di utilizzo e accesso (ad es. indirizzo IP, tipo di browser) per garantire la funzionalità del sito.",
-          "File di log del server per esercizio, analisi tecnica e sicurezza.",
-          "Hosting del sito tramite Vercel (Vercel Inc.).",
-          "Hosting del dominio tramite Hostpoint AG (Svizzera).",
+          "Informazioni inserite nel planner (ad es. destinazione, durata, preferenze, testo libero).",
+          "Dati di utilizzo e accesso (ad es. indirizzo IP, informazioni su dispositivo e browser) e log del server.",
+          "Cookie per memorizzare il consenso.",
+          "Analisi del traffico tramite Google Analytics (solo con consenso).",
+          "Protezione da abusi tramite Google reCAPTCHA.",
+          "Hosting del sito tramite Vercel (Vercel Inc.) e dominio tramite Hostpoint AG (Svizzera).",
         ],
         aiTitle: "Uso di servizi di IA",
         aiBody:
-          "Per creare proposte di viaggio può essere utilizzato un servizio di IA esterno. Completa qui il provider specifico, le finalità del trattamento e la base giuridica.",
+          "Per generare suggerimenti di viaggio utilizziamo, a seconda della configurazione, un servizio di IA (ad es. OpenAI, Anthropic o Google). I tuoi input vengono trasmessi al relativo fornitore. I dati possono essere trasferiti fuori dalla Svizzera/SEE; ci basiamo su garanzie riconosciute come le clausole contrattuali standard.",
         rightsTitle: "I tuoi diritti",
         rightsBody:
-          "Hai sempre il diritto di accesso, rettifica, cancellazione, limitazione del trattamento e portabilità dei dati. Puoi inoltre opporti al trattamento.",
+          "Hai il diritto di accesso, di ottenere una copia, di rettifica, di cancellazione e di opposizione. Puoi inoltre richiedere la limitazione del trattamento.",
         rightsNote:
           "Per richieste relative ai tuoi diritti, contattaci a info@holidai.ch.",
       },
@@ -662,7 +665,7 @@ export const translations = {
           "Email: info@holidai.ch",
         responsibleTitle: "Responsabile del contenuto",
         responsibleBody:
-          "Responsabile ai sensi del § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Svizzera.",
+          "Responsabile del contenuto: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Svizzera.",
         responsibleNote:
           "Privatperson, contatto indicato sopra.",
       },
@@ -846,36 +849,37 @@ export const translations = {
       agb: {
         title: "Cundiziuns generalas",
         intro:
-          "Questas cundiziuns generalas reglan l'utilisaziun da la plattafurma HolidAI. Furnitur: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Svizra, info@holidai.ch. Cun utilisar noss servetschs acceptas ti las suandantas cundiziuns.",
+          "Questas cundiziuns reglan l'utilisaziun da la plattafurma HolidAI (holidai.ch). Furnitur: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Svizra, info@holidai.ch. HolidAI n'è betg in organisatur da viadis e na fa naginas reservaziuns.",
         servicesTitle: "Prestaziuns",
         servicesBody:
-          "HolidAI furnescha propostas da viadi sustegnidas cun IA. Las novitads servan sco orientaziun e na remplazzan betg cusseglaziuns giuridicas u reservaziuns liantas.",
+          "HolidAI furnescha novitads ed ideas da viadi sustegnidas cun IA sin basa da tias indicaziuns. Ils cuntegns servan sco infurmaziun; reservaziuns vegnan fatgas mo tar terzs.",
         liabilityTitle: "Responsabilitad & garanzia",
         liabilityBody:
-          "Nus essan mo responsabels per donns ch'èn causads d'in agir intenziunà u grevamain negligient. Nus na garantin betg l'actualitad dals cuntegns.",
+          "Nus essan mo responsabels per donns ch'èn causads d'in agir intenziunà u grevamain negligient. Nagin'assicuranza per links externs, la disponibladad da terzs u indicaziuns da prets e prestaziuns.",
         liabilityNote:
-          "Infurmaziun: agiunta qua tias cundiziuns, prets e descripziuns da prestaziuns specificas.",
+          "I vala il dretg svizzer. Gerichtsstand è – uschè lunsch sco lubì – Zizers (Svizra). Nus pudain actualisar questas cundiziuns; vala la versiun actuala sin la website.",
       },
       privacy: {
         title: "Decleraziun da protecziun da datas",
         intro:
-          "Nus prendain fitg serius la protecziun da tias datas persunalas. Questa decleraziun ta infurmescha tge datas vegnan tractadas durant la visita da HolidAI e cun tge intent.",
+          "Nus tractain tias datas persunalas tenor la lescha federala svizra davart la protecziun da datas (LPD). Questa decleraziun explitgescha intent, extent e destinataris dal tractament.",
         contact:
           "Post responsabel: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Svizra. Contact: info@holidai.ch.",
         dataTitle: "Datas tractadas",
         dataItems: [
-          "Datas che ti endateschas activamain (p.ex. contact u cuntegn).",
-          "Datas d'utilisaziun e d'access (p.ex. adressa IP, tip da browser) per garantir la funcziun da la website.",
-          "Logfiles dal server per funcziunament, analisa tecnica e segirezza.",
-          "Hosting da la website via Vercel (Vercel Inc.).",
-          "Hosting da la domain via Hostpoint AG (Svizra).",
+          "Infurmaziuns che ti endateschas en il planner (p.ex. destinaziun, durada, preferenzas, text liber).",
+          "Datas d'utilisaziun e d'access (p.ex. adressa IP, infurmaziuns davart apparat e browser) e logfiles dal server.",
+          "Cookies per memorisar il consentiment.",
+          "Analisa via Google Analytics (mo cun consentiment).",
+          "Protecziun cunter abus tras Google reCAPTCHA.",
+          "Hosting da la website via Vercel (Vercel Inc.) e da la domain via Hostpoint AG (Svizra).",
         ],
         aiTitle: "Utilisaziun da servetschs d'IA",
         aiBody:
-          "Per crear propostas da viadi po vegnir utilisà in servetsch d'IA extern. Per plaschair cumplementescha qua il furnitur exact, ils intents dal tractament e la basa legala.",
+          "Per generar propostas da viadi utilisain nus tenor la configuraziun in servetsch d'IA (p.ex. OpenAI, Anthropic u Google). Tias indicaziuns vegnan transmittidas al furnitur respectiv. Datas pon vegnir transferidas ordaifer Svizra/SEE; nus ans basain sin garanzias renconuschidas sco clausulas contractuala standard.",
         rightsTitle: "Tes dretgs",
         rightsBody:
-          "Ti has adina il dretg d'infurmaziun, rectificaziun, stizzar, limitar il tractament sco er transferibilitad da datas. Ti pos er far opposiziun al tractament.",
+          "Ti has il dretg d'infurmaziun, da survegnir ina copia, da rectificaziun, da stizzar e d'opposiziun. Ti pos era dumandar ina limitaziun dal tractament.",
         rightsNote:
           "Per dumondas davart tes dretgs ans contactescha per plaschair sin info@holidai.ch.",
       },
@@ -887,7 +891,7 @@ export const translations = {
           "E-mail: info@holidai.ch",
         responsibleTitle: "Responsabel per il cuntegn",
         responsibleBody:
-          "Responsabel tenor § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Svizra.",
+          "Responsabel per il cuntegn: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Svizra.",
         responsibleNote:
           "Privatperson, contact vesair survart.",
       },
@@ -1068,36 +1072,37 @@ export const translations = {
       agb: {
         title: "Terms & Conditions",
         intro:
-          "These terms govern the use of the HolidAI platform. Provider: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Switzerland, info@holidai.ch. By using our services you agree to the following conditions.",
+          "These terms govern the use of the HolidAI platform (holidai.ch). Provider: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Switzerland, info@holidai.ch. HolidAI is not a tour operator and does not broker bookings.",
         servicesTitle: "Services",
         servicesBody:
-          "HolidAI provides AI-assisted travel suggestions. The information provided is for orientation only and does not replace binding booking or legal advice.",
+          "HolidAI provides AI-assisted travel ideas and plans based on your inputs. The content is informational; bookings are made exclusively with third parties.",
         liabilityTitle: "Liability & warranty",
         liabilityBody:
-          "We are only liable for damages caused by intentional or grossly negligent breaches of duty. We do not guarantee the timeliness of content.",
+          "We are only liable for damages caused by intentional or grossly negligent breaches of duty. We provide no warranty for external links, third-party availability, or price and service details.",
         liabilityNote:
-          "Note: Please add your specific terms, pricing, and service descriptions.",
+          "Swiss law applies. The place of jurisdiction is Zizers (Switzerland), where permitted. We may update these terms; the current version on the website applies.",
       },
       privacy: {
         title: "Privacy policy",
         intro:
-          "We take the protection of your personal data very seriously. This statement informs you about which data is processed when visiting HolidAI and for what purpose.",
+          "We process personal data in accordance with the Swiss Federal Act on Data Protection (FADP). This statement explains the purpose, scope, and recipients of processing.",
         contact:
           "Responsible entity: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Switzerland. Contact: info@holidai.ch.",
         dataTitle: "Processed data",
         dataItems: [
-          "Data you actively provide (e.g. contact or content data).",
-          "Usage and access data (e.g. IP address, browser type) to ensure website functionality.",
-          "Server log files for operation, technical analysis, and security.",
-          "Website hosting via Vercel (Vercel Inc.).",
-          "Domain hosting via Hostpoint AG (Switzerland).",
+          "Information you enter in the planner (e.g. destination, duration, preferences, free text).",
+          "Usage and access data (e.g. IP address, device and browser information) and server log files.",
+          "Cookies to store your consent status.",
+          "Web analytics via Google Analytics (only with consent).",
+          "Abuse protection via Google reCAPTCHA.",
+          "Website hosting via Vercel (Vercel Inc.) and domain hosting via Hostpoint AG (Switzerland).",
         ],
         aiTitle: "Use of AI services",
         aiBody:
-          "An external AI service may be used to generate travel suggestions. Please add the specific provider, processing purposes, and legal basis here.",
+          "To generate travel suggestions, we use an AI service depending on configuration (e.g. OpenAI, Anthropic, or Google). Your inputs are transmitted to the respective provider. Data may be transferred outside Switzerland/EEA; we rely on recognized safeguards such as standard contractual clauses.",
         rightsTitle: "Your rights",
         rightsBody:
-          "You always have the right to access, rectify, delete, restrict processing, and data portability. You can also object to processing.",
+          "You have the right to access, obtain a copy, rectify, delete, and object. You can also request a restriction of processing.",
         rightsNote:
           "For requests regarding your rights, please contact us at info@holidai.ch.",
       },
@@ -1109,7 +1114,7 @@ export const translations = {
           "Email: info@holidai.ch",
         responsibleTitle: "Responsible for content",
         responsibleBody:
-          "Responsible pursuant to § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Switzerland.",
+          "Responsible for content: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Switzerland.",
         responsibleNote:
           "Privatperson, contact above.",
       },

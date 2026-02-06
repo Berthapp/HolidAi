@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Datenschutz (Privacy) · HolidAI";
 const description =
-  "Kurzfassung zum Datenschutz mit Platzhaltern für AI-Provider und Datenverarbeitung.";
+  "Kurzfassung der Datenschutzhinweise gemäss Schweizer DSG für HolidAI.";
 
 export const metadata: Metadata = {
   title,
@@ -44,21 +44,20 @@ export default function Page() {
           auf der Seite &quot;Datenschutz&quot;.
         </p>
         <p>
-          Verantwortliche Stelle: HolidAI, Schweiz. Kontakt:
-          info@holidai.ch.
+          Verantwortliche Stelle: Enzo Berther (HolidAI), Sonnenbergstrasse 12,
+          7205 Zizers, Schweiz. Kontakt: info@holidai.ch.
         </p>
       </section>
 
       <section className="space-y-3 text-sm text-slate-600">
         <h2 className="text-base font-semibold text-slate-800">
-          KI-Provider &amp; Datenverarbeitung (Platzhalter)
+          KI-Provider &amp; Datenverarbeitung
         </h2>
         <p>
-          Für die Erstellung der Reisevorschläge kann ein externer KI-Provider
-          eingesetzt werden. Bitte ergänze hier den konkreten Anbieter, den
-          Zweck der Verarbeitung und die Rechtsgrundlage. Beispiel: &quot;Wir
-          nutzen [AI-Provider] zur Generierung von Reisevorschlägen. Dabei
-          werden Eingaben anonymisiert verarbeitet.&quot;
+          Für die Erstellung der Reisevorschläge nutzen wir je nach
+          Konfiguration einen KI-Dienst (z. B. OpenAI, Anthropic oder Google).
+          Deine Eingaben werden an den jeweiligen Anbieter übermittelt und
+          können ausserhalb der Schweiz/EWR verarbeitet werden.
         </p>
       </section>
 
@@ -67,9 +66,9 @@ export default function Page() {
           Rechte der betroffenen Personen
         </h2>
         <p>
-          Du hast das Recht auf Auskunft, Berichtigung, Löschung,
-          Einschränkung der Verarbeitung sowie Datenübertragbarkeit und
-          Widerspruch.
+          Du hast das Recht auf Auskunft, Herausgabe, Berichtigung, Löschung,
+          Einschränkung der Bearbeitung sowie Widerspruch. Details findest du
+          in der vollständigen Datenschutzerklärung.
         </p>
       </section>
     </main>
