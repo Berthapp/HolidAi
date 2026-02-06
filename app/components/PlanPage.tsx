@@ -25,8 +25,7 @@ const travelStyleValues: TravelStyle[] = [
   "Relax",
   "Nature",
   "City",
-  "Family",
-  "Couple",
+  "Flexible",
   "Backpacking",
 ];
 

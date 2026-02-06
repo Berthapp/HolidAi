@@ -4,8 +4,7 @@ export type TravelStyle =
   | "Relax"
   | "Nature"
   | "City"
-  | "Family"
-  | "Couple"
+  | "Flexible"
   | "Backpacking";
 
 export type BudgetFeeling = "Low" | "Medium" | "Comfort";
