@@ -1,7 +1,23 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { resolveDurationLabel } from "../../lib/i18n-data";
 import type { Locale } from "../../lib/i18n-data";
 import type { PlanRequest, TravelPlanResponse } from "../../lib/types";
+import { rateLimit } from "../../lib/rate-limit";
+
+const requestSchema = z.object({
+  locale: z.enum(["de", "en", "fr", "it", "rm"]).optional().default("de"),
+  answers: z
+    .object({
+      destination: z.string().trim().min(1).max(120),
+      duration: z.string().trim().max(40).optional().default(""),
+      travelStyle: z.string().trim().max(40).optional().default(""),
+      budget: z.string().trim().max(40).optional().default(""),
+      travelers: z.string().trim().max(40).optional().default(""),
+      season: z.string().trim().max(40).optional().default(""),
+    })
+    .strict(),
+});
 
 const buildMockPlan = (
   request: PlanRequest,
@@ -81,9 +97,56 @@ const buildMockPlan = (
 };
 
 export async function POST(request: Request) {
-  const body = (await request.json()) as PlanRequest;
+  const clientIp =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    request.headers.get("x-real-ip") ??
+    "unknown";
+  const rateLimitResult = rateLimit({
+    key: `plan:${clientIp}`,
+    windowMs: 60_000,
+    max: 20,
+  });
+
+  if (!rateLimitResult.allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again shortly." },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": Math.ceil(rateLimitResult.retryAfterMs / 1000).toString(),
+          "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+          "X-RateLimit-Remaining": "0",
+        },
+      }
+    );
+  }
+
+  let payload: unknown;
+  try {
+    payload = await request.json();
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Invalid JSON payload." },
+      { status: 400 }
+    );
+  }
+
+  const parsed = requestSchema.safeParse(payload);
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: "Invalid request data.", details: parsed.error.flatten() },
+      { status: 400 }
+    );
+  }
+
+  const body = parsed.data as PlanRequest;
   const locale = body.locale === "en" ? "en" : "de";
   const response = buildMockPlan(body, locale);
 
-  return NextResponse.json(response);
+  return NextResponse.json(response, {
+    headers: {
+      "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+      "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
+    },
+  });
 }
