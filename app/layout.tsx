@@ -58,11 +58,8 @@ export default function RootLayout({
                       alt="HolidAI"
                       width={32}
                       height={32}
-                      className="h-8 w-8"
+                      className="h-8 w-14"
                     />
-                    <span className="hidden text-sm font-semibold tracking-tight sm:inline">
-                      HolidAI
-                    </span>
                   </Link>
                   <LanguageSelector />
                 </div>
