@@ -32,7 +32,7 @@ const responseSchema = z.object({
         amount: z.string().min(1),
       })
     )
-    .min(3),
+    .min(1),
   itinerary: z
     .array(
       z.object({
@@ -40,7 +40,7 @@ const responseSchema = z.object({
         summary: z.string().min(1),
       })
     )
-    .min(3),
+    .min(1),
   notes: z.array(z.string().min(1)).min(1),
 });
 
