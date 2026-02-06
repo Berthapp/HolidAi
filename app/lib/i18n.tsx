@@ -35,6 +35,38 @@ const getNestedValue = (obj: Record<string, unknown>, path: string) => {
   }, obj);
 };
 
+const mergeTranslationObjects = (
+  base: Record<string, unknown>,
+  overrides?: Record<string, unknown>
+) => {
+  if (!overrides) return base;
+  const result: Record<string, unknown> = { ...base };
+
+  for (const [key, value] of Object.entries(overrides)) {
+    const baseValue = base[key];
+    if (Array.isArray(value)) {
+      result[key] = value;
+      continue;
+    }
+    if (value && typeof value === "object") {
+      const baseObject =
+        baseValue && typeof baseValue === "object" && !Array.isArray(baseValue)
+          ? (baseValue as Record<string, unknown>)
+          : {};
+      result[key] = mergeTranslationObjects(
+        baseObject,
+        value as Record<string, unknown>
+      );
+      continue;
+    }
+    if (value !== undefined) {
+      result[key] = value;
+    }
+  }
+
+  return result;
+};
+
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocale] = useState<Locale>("de");
 
@@ -96,5 +128,12 @@ export function useTranslations() {
 
 export function useTranslationList() {
   const { locale } = useI18n();
-  return useMemo(() => getTranslations(locale), [locale]);
+  return useMemo(
+    () =>
+      mergeTranslationObjects(
+        translations.de,
+        getTranslations(locale) as Record<string, unknown>
+      ),
+    [locale]
+  );
 }
