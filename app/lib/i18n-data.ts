@@ -108,6 +108,10 @@ export const translations = {
         selectOption: "Bitte wähle eine Option, bevor du weitergehst.",
         selectOptionFinish: "Bitte wähle eine Option, bevor du abschließt.",
         planFailed: "Plan konnte nicht erstellt werden.",
+        recaptchaUnavailable:
+          "reCAPTCHA ist aktuell nicht verfügbar. Bitte versuche es später erneut.",
+        recaptchaFailed:
+          "reCAPTCHA-Prüfung fehlgeschlagen. Bitte versuche es erneut.",
         unexpected: "Unerwarteter Fehler.",
       },
     },
@@ -315,6 +319,10 @@ export const translations = {
         selectOption: "Veuillez choisir une option avant de continuer.",
         selectOptionFinish: "Veuillez choisir une option avant de terminer.",
         planFailed: "Le plan n'a pas pu être créé.",
+        recaptchaUnavailable:
+          "reCAPTCHA n'est pas disponible pour le moment. Veuillez réessayer plus tard.",
+        recaptchaFailed:
+          "La vérification reCAPTCHA a échoué. Veuillez réessayer.",
         unexpected: "Erreur inattendue.",
       },
     },
@@ -522,6 +530,10 @@ export const translations = {
         selectOption: "Seleziona un'opzione prima di continuare.",
         selectOptionFinish: "Seleziona un'opzione prima di terminare.",
         planFailed: "Impossibile creare il piano.",
+        recaptchaUnavailable:
+          "reCAPTCHA non è disponibile al momento. Riprova più tardi.",
+        recaptchaFailed:
+          "La verifica reCAPTCHA non è riuscita. Riprova.",
         unexpected: "Errore imprevisto.",
       },
     },
@@ -730,6 +742,10 @@ export const translations = {
         selectOptionFinish:
           "Tscherna per plaschair ina opziun avant che finir.",
         planFailed: "Il plan n'ha betg pudì vegnir creà.",
+        recaptchaUnavailable:
+          "reCAPTCHA n'è betg disponibel il mument. Emprova pli tard.",
+        recaptchaFailed:
+          "La verificaziun reCAPTCHA n'è betg reussida. Emprova anc ina giada.",
         unexpected: "Sbagl nunspetgà.",
       },
     },
@@ -937,6 +953,9 @@ export const translations = {
         selectOption: "Please choose an option before continuing.",
         selectOptionFinish: "Please choose an option before finishing.",
         planFailed: "Plan could not be created.",
+        recaptchaUnavailable:
+          "reCAPTCHA is currently unavailable. Please try again later.",
+        recaptchaFailed: "reCAPTCHA verification failed. Please try again.",
         unexpected: "Unexpected error.",
       },
     },
