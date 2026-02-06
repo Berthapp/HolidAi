@@ -9,6 +9,7 @@ import { I18nProvider } from "./lib/i18n";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { ServiceWorkerRegistrar } from "./components/ServiceWorkerRegistrar";
 import { CookieConsentManager } from "./components/CookieConsentManager";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -137,6 +138,7 @@ export default function RootLayout({
           </PlanProvider>
         </I18nProvider>
         <ServiceWorkerRegistrar />
+        <SpeedInsights />
       </body>
     </html>
   );
