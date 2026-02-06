@@ -24,6 +24,7 @@ export type PlanningAnswers = {
 export type PlanRequest = {
   locale: Locale;
   answers: PlanningAnswers;
+  recaptchaToken: string;
 };
 
 export type CostBreakdownItem = {
@@ -57,6 +58,7 @@ export const examplePlanRequest: PlanRequest = {
     childrenCount: 0,
     season: "September",
   },
+  recaptchaToken: "example-token",
 };
 
 export const examplePlanResponse: TravelPlanResponse = {

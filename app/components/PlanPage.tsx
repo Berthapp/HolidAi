@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 import { PrimaryInput } from "./PrimaryInput";
 import { OptionChips } from "./OptionChips";
 import { StepProgress } from "./StepProgress";
@@ -20,6 +21,17 @@ import type {
   TravelStyle,
   TravelersGroup,
 } from "../lib/types";
+
+type RecaptchaApi = {
+  ready: (callback: () => void) => void;
+  execute: (siteKey: string, options: { action: string }) => Promise<string>;
+};
+
+declare global {
+  interface Window {
+    grecaptcha?: RecaptchaApi;
+  }
+}
 
 const travelStyleValues: TravelStyle[] = [
   "Relax",
@@ -140,13 +152,31 @@ export function PlanPage() {
   const canProceed = isStepValid(step.id, answers);
   const isLastStep = currentStep === steps.length - 1;
 
-  const requestPayload: PlanRequest = useMemo(
+  const requestPayload = useMemo<Omit<PlanRequest, "recaptchaToken">>(
     () => ({
       locale,
       answers,
     }),
     [answers, locale]
   );
+
+  const executeRecaptcha = async () => {
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (!siteKey) {
+      throw new Error(t("plan.errors.recaptchaUnavailable"));
+    }
+    if (!window.grecaptcha) {
+      throw new Error(t("plan.errors.recaptchaUnavailable"));
+    }
+    return new Promise<string>((resolve, reject) => {
+      window.grecaptcha?.ready(() => {
+        window.grecaptcha
+          ?.execute(siteKey, { action: "plan_submit" })
+          .then(resolve)
+          .catch(reject);
+      });
+    });
+  };
 
   const handleNext = () => {
     if (!canProceed) {
@@ -176,15 +206,29 @@ export function PlanPage() {
     setError("");
     setIsSubmitting(true);
     try {
+      const recaptchaToken = await executeRecaptcha();
+      const payload: PlanRequest = {
+        ...requestPayload,
+        recaptchaToken,
+      };
       const response = await fetch("/api/plan", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(requestPayload),
+        body: JSON.stringify(payload),
       });
       if (!response.ok) {
-        throw new Error(t("plan.errors.planFailed"));
+        let errorMessage = t("plan.errors.planFailed");
+        try {
+          const errorBody = (await response.json()) as { error?: string };
+          if (errorBody?.error?.toLowerCase().includes("recaptcha")) {
+            errorMessage = t("plan.errors.recaptchaFailed");
+          }
+        } catch (parseError) {
+          // ignore parse errors and use fallback message
+        }
+        throw new Error(errorMessage);
       }
       const data = (await response.json()) as TravelPlanResponse;
       setResult(data);
@@ -202,6 +246,12 @@ export function PlanPage() {
 
   return (
     <main className="min-h-screen px-6 py-12">
+      {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="afterInteractive"
+        />
+      ) : null}
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-10">
         <header className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">

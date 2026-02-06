@@ -7,6 +7,7 @@ import { rateLimit } from "../../lib/rate-limit";
 
 const requestSchema = z.object({
   locale: z.enum(["de", "en", "fr", "it", "rm"]).optional().default("de"),
+  recaptchaToken: z.string().trim().min(1),
   answers: z
     .object({
       destination: z.string().trim().min(1).max(120),
@@ -68,6 +69,50 @@ const serializeAnswers = (answers: PlanRequest["answers"]) => {
   );
 
   return lines.join("\n");
+};
+
+const verifyRecaptcha = async (token: string, remoteIp: string | null) => {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) {
+    throw new Error("Missing RECAPTCHA_SECRET_KEY environment variable.");
+  }
+  const params = new URLSearchParams({
+    secret,
+    response: token,
+  });
+  if (remoteIp) {
+    params.append("remoteip", remoteIp);
+  }
+  const response = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: params.toString(),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to verify reCAPTCHA.");
+  }
+
+  const data = (await response.json()) as {
+    success?: boolean;
+    score?: number;
+    action?: string;
+  };
+
+  const rawMinScore = Number(process.env.RECAPTCHA_MIN_SCORE ?? "0.5");
+  const minScore = Number.isNaN(rawMinScore) ? 0.5 : rawMinScore;
+  if (
+    !data.success ||
+    (typeof data.score === "number" && data.score < minScore) ||
+    (data.action && data.action !== "plan_submit")
+  ) {
+    throw new Error("reCAPTCHA verification failed.");
+  }
 };
 
 const buildPrompt = (request: PlanRequest) => {
@@ -300,6 +345,10 @@ export async function POST(request: Request) {
   const locale: Locale = body.locale ?? "de";
 
   try {
+    await verifyRecaptcha(
+      body.recaptchaToken,
+      clientIp === "unknown" ? null : clientIp
+    );
     const response = await generatePlan({ ...body, locale });
     return NextResponse.json(response, {
       headers: {
@@ -310,10 +359,16 @@ export async function POST(request: Request) {
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Plan generation failed.";
+    const loweredMessage = message.toLowerCase();
+    const statusCode =
+      loweredMessage.includes("recaptcha verification failed") ||
+      loweredMessage.includes("failed to verify recaptcha")
+        ? 400
+        : 500;
     return NextResponse.json(
       { error: message },
       {
-        status: 500,
+        status: statusCode,
         headers: {
           "X-RateLimit-Limit": rateLimitResult.limit.toString(),
           "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
