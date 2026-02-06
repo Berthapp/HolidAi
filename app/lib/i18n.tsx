@@ -13,6 +13,7 @@ import {
   supportedLocales,
   translations,
   type Locale,
+  type TranslationTree,
 } from "./i18n-data";
 
 type TranslationValues = Record<string, string | number>;
@@ -35,17 +36,17 @@ const getNestedValue = (obj: Record<string, unknown>, path: string) => {
   }, obj);
 };
 
-const mergeTranslationObjects = (
-  base: Record<string, unknown>,
+const mergeTranslationObjects = <T extends Record<string, unknown>>(
+  base: T,
   overrides?: Record<string, unknown>
-) => {
+): T => {
   if (!overrides) return base;
-  const result: Record<string, unknown> = { ...base };
+  const result = { ...base } as T;
 
   for (const [key, value] of Object.entries(overrides)) {
     const baseValue = base[key];
     if (Array.isArray(value)) {
-      result[key] = value;
+      result[key as keyof T] = value as T[keyof T];
       continue;
     }
     if (value && typeof value === "object") {
@@ -53,14 +54,14 @@ const mergeTranslationObjects = (
         baseValue && typeof baseValue === "object" && !Array.isArray(baseValue)
           ? (baseValue as Record<string, unknown>)
           : {};
-      result[key] = mergeTranslationObjects(
+      result[key as keyof T] = mergeTranslationObjects(
         baseObject,
         value as Record<string, unknown>
-      );
+      ) as T[keyof T];
       continue;
     }
     if (value !== undefined) {
-      result[key] = value;
+      result[key as keyof T] = value as T[keyof T];
     }
   }
 
@@ -128,7 +129,7 @@ export function useTranslations() {
 
 export function useTranslationList() {
   const { locale } = useI18n();
-  return useMemo(
+  return useMemo<TranslationTree>(
     () =>
       mergeTranslationObjects(
         translations.de,
