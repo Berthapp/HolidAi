@@ -10,7 +10,7 @@ export const translations = {
       en: "Englisch",
       fr: "Französisch",
       it: "Italienisch",
-      rm: "Rumantsch Grischun",
+      rm: "Rätoromanisch",
     },
     languagesShort: {
       de: "DE",
@@ -194,7 +194,7 @@ export const translations = {
       en: "Anglais",
       fr: "Français",
       it: "Italien",
-      rm: "Rumantsch Grischun",
+      rm: "Romanche",
     },
     languagesShort: {
       de: "DE",
@@ -378,7 +378,7 @@ export const translations = {
       en: "Inglese",
       fr: "Francese",
       it: "Italiano",
-      rm: "Rumantsch Grischun",
+      rm: "Romancio",
     },
     languagesShort: {
       de: "DE",
@@ -747,7 +747,7 @@ export const translations = {
       en: "English",
       fr: "French",
       it: "Italian",
-      rm: "Rumantsch Grischun",
+      rm: "Romansh",
     },
     languagesShort: {
       de: "DE",
