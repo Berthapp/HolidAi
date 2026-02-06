@@ -1,4 +1,4 @@
-export type Locale = "de" | "en";
+export type Locale = "de" | "fr" | "it" | "rm";
 
 type TranslationValues = Record<string, string | number>;
 
@@ -7,7 +7,15 @@ export const translations = {
     languageLabel: "Sprache",
     languages: {
       de: "Deutsch",
-      en: "Englisch",
+      fr: "Französisch",
+      it: "Italienisch",
+      rm: "Rumantsch Grischun",
+    },
+    languagesShort: {
+      de: "DE",
+      fr: "FR",
+      it: "IT",
+      rm: "RM",
     },
     footer: {
       tagline: "Smarter Urlaub planen · Schnell, klar, persönlich.",
@@ -177,11 +185,64 @@ export const translations = {
       },
     },
   },
+  fr: {
+    languageLabel: "Langue",
+    languages: {
+      de: "Allemand",
+      fr: "Français",
+      it: "Italien",
+      rm: "Rumantsch Grischun",
+    },
+    languagesShort: {
+      de: "DE",
+      fr: "FR",
+      it: "IT",
+      rm: "RM",
+    },
+  },
+  it: {
+    languageLabel: "Lingua",
+    languages: {
+      de: "Tedesco",
+      fr: "Francese",
+      it: "Italiano",
+      rm: "Rumantsch Grischun",
+    },
+    languagesShort: {
+      de: "DE",
+      fr: "FR",
+      it: "IT",
+      rm: "RM",
+    },
+  },
+  rm: {
+    languageLabel: "Lingua",
+    languages: {
+      de: "Tudestg",
+      fr: "Franzos",
+      it: "Talian",
+      rm: "Rumantsch Grischun",
+    },
+    languagesShort: {
+      de: "DE",
+      fr: "FR",
+      it: "IT",
+      rm: "RM",
+    },
+  },
   en: {
     languageLabel: "Language",
     languages: {
       de: "German",
-      en: "English",
+      fr: "French",
+      it: "Italian",
+      rm: "Rumantsch Grischun",
+    },
+    languagesShort: {
+      de: "DE",
+      fr: "FR",
+      it: "IT",
+      rm: "RM",
     },
     footer: {
       tagline: "Plan smarter vacations · Fast, clear, personal.",
@@ -352,7 +413,7 @@ export const translations = {
   },
 } as const;
 
-export const supportedLocales: Locale[] = ["de", "en"];
+export const supportedLocales: Locale[] = ["de", "fr", "it", "rm"];
 
 export const durationOptionKeys = [
   "duration_3_5",

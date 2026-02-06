@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
 import "./globals.css";
 import { PlanProvider } from "./lib/plan-store";
 import { Footer } from "./components/Footer";
@@ -49,7 +51,19 @@ export default function RootLayout({
           <PlanProvider>
             <div className="flex min-h-screen flex-col">
               <header className="border-b border-slate-100 bg-white/80 px-6 py-4 text-slate-500 backdrop-blur">
-                <div className="mx-auto flex w-full max-w-5xl items-center justify-end">
+                <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4">
+                  <Link href="/" className="flex items-center gap-2 text-slate-900">
+                    <Image
+                      src="/logo.png"
+                      alt="HolidAI"
+                      width={32}
+                      height={32}
+                      className="h-8 w-8"
+                    />
+                    <span className="hidden text-sm font-semibold tracking-tight sm:inline">
+                      HolidAI
+                    </span>
+                  </Link>
                   <LanguageSelector />
                 </div>
               </header>
