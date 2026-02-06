@@ -277,7 +277,7 @@ export function PlanPage() {
             type="button"
             onClick={handleBack}
             disabled={currentStep === 0}
-            className="rounded-full border-2 border-teal-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 transition hover:border-teal-400 hover:bg-teal-50 disabled:cursor-not-allowed disabled:border-slate-200 disabled:text-slate-400 disabled:opacity-60"
+            className="cursor-pointer rounded-full border-2 border-teal-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 transition hover:border-teal-400 hover:bg-teal-50 disabled:cursor-not-allowed disabled:border-slate-200 disabled:text-slate-400 disabled:opacity-60"
           >
             {t("plan.buttons.back")}
           </button>
@@ -285,7 +285,7 @@ export function PlanPage() {
             type="button"
             onClick={isLastStep ? handleSubmit : handleNext}
             disabled={!canProceed || isSubmitting}
-            className="rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-teal-600 disabled:cursor-not-allowed disabled:opacity-50"
+            className="cursor-pointer rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-teal-600 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isLastStep ? t("plan.buttons.submit") : t("plan.buttons.next")}
           </button>
