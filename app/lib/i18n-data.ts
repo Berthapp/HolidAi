@@ -219,7 +219,7 @@ export const translations = {
       subtitle:
         "Commencez par une destination. Nous vous guidons pas à pas vers le plan parfait.",
       destinationLabel: "Où souhaitez-vous aller ?",
-      destinationPlaceholder: "ex. Porto, Islande, Thaïlande",
+      destinationPlaceholder: "ex. Porto, Islande, Thailande",
       startPlan: "Commencer le plan",
       errorDestination: "Veuillez saisir une destination.",
       highlights: {
