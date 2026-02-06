@@ -12,6 +12,7 @@ const requestSchema = z.object({
     .object({
       destination: z.string().trim().min(1).max(120),
       duration: z.string().trim().max(40).optional().default(""),
+      travelMode: z.string().trim().max(40).optional().default(""),
       travelStyle: z.string().trim().max(40).optional().default(""),
       budget: z.string().trim().max(40).optional().default(""),
       travelers: z.string().trim().max(40).optional().default(""),
@@ -51,6 +52,9 @@ const serializeAnswers = (answers: PlanRequest["answers"]) => {
     answers.duration
       ? `Duration: ${answers.duration}`
       : "Duration: (not specified)",
+    answers.travelMode
+      ? `Travel mode: ${answers.travelMode}`
+      : "Travel mode: (not specified)",
     answers.travelStyle
       ? `Travel style: ${answers.travelStyle}`
       : "Travel style: (not specified)",
