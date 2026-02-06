@@ -16,6 +16,7 @@ const requestSchema = z.object({
       travelStyle: z.string().trim().max(40).optional().default(""),
       budget: z.string().trim().max(40).optional().default(""),
       travelers: z.string().trim().max(40).optional().default(""),
+      childrenCount: z.number().int().min(0).max(10).optional().default(0),
       season: z.string().trim().max(40).optional().default(""),
     })
     .strict(),
@@ -45,15 +46,31 @@ const responseSchema = z.object({
   notes: z.array(z.string().min(1)).min(1),
 });
 
-const serializeAnswers = (answers: PlanRequest["answers"]) =>
-  [
+const serializeAnswers = (answers: PlanRequest["answers"]) => {
+  const lines = [
     `Destination: ${answers.destination}`,
-    answers.duration ? `Duration: ${answers.duration}` : "Duration: (not specified)",
-    answers.travelStyle ? `Travel style: ${answers.travelStyle}` : "Travel style: (not specified)",
+    answers.duration
+      ? `Duration: ${answers.duration}`
+      : "Duration: (not specified)",
+    answers.travelStyle
+      ? `Travel style: ${answers.travelStyle}`
+      : "Travel style: (not specified)",
     answers.budget ? `Budget: ${answers.budget}` : "Budget: (not specified)",
-    answers.travelers ? `Travelers: ${answers.travelers}` : "Travelers: (not specified)",
-    answers.season ? `Season: ${answers.season}` : "Season: (not specified)",
-  ].join("\n");
+    answers.travelers
+      ? `Travelers: ${answers.travelers}`
+      : "Travelers: (not specified)",
+  ];
+
+  if (answers.travelers === "Family + kids") {
+    lines.push(`Children count: ${answers.childrenCount ?? 0}`);
+  }
+
+  lines.push(
+    answers.season ? `Season: ${answers.season}` : "Season: (not specified)"
+  );
+
+  return lines.join("\n");
+};
 
 const buildPrompt = (request: PlanRequest) => {
   return [
@@ -71,6 +88,8 @@ const buildPrompt = (request: PlanRequest) => {
     `Locale: ${request.locale}`,
     "Use CHF for cost breakdown amounts. Keep amounts realistic and concise.",
     "Use the locale language in all labels, rationale, itinerary, and notes.",
+    "If a duration is provided, base the itinerary length and cost breakdown on that duration.",
+    "If you recommend a different duration, keep it in recommendedDuration but do not change the itinerary length.",
     "Answer data:",
     serializeAnswers(request.answers),
   ].join("\n");
@@ -103,6 +122,7 @@ const generatePlan = async (
         body: JSON.stringify({
           model,
           temperature,
+          max_tokens: 900,
           messages: [
             {
               role: "system",

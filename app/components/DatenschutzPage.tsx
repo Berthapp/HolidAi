@@ -5,6 +5,11 @@ import { useTranslationList, useTranslations } from "../lib/i18n";
 export function DatenschutzPage() {
   const t = useTranslations();
   const list = useTranslationList();
+  const dataItems = (
+    list as {
+      legal?: { privacy?: { dataItems?: string[] } };
+    }
+  ).legal?.privacy?.dataItems;
 
   return (
     <main className="mx-auto flex min-h-[70vh] w-full max-w-3xl flex-col gap-6 px-6 py-16">
@@ -27,7 +32,7 @@ export function DatenschutzPage() {
           {t("legal.privacy.dataTitle")}
         </h2>
         <ul className="list-disc space-y-2 pl-5">
-          {list.legal.privacy.dataItems.map((item) => (
+          {(Array.isArray(dataItems) ? dataItems : []).map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
