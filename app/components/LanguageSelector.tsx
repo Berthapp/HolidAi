@@ -106,7 +106,10 @@ export function LanguageSelector() {
   const t = useTranslations();
 
   return (
-    <label className="flex items-center gap-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-400 sm:text-xs">
+    <div
+      aria-label={t("languageLabel")}
+      className="flex items-center gap-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-400 sm:text-xs"
+    >
       <span className="hidden sm:inline">{t("languageLabel")}</span>
       <LanguageMenu
         className="hidden sm:block"
@@ -116,6 +119,6 @@ export function LanguageSelector() {
         className="sm:hidden"
         labelForLocale={(locale) => t(`languagesShort.${locale}`)}
       />
-    </label>
+    </div>
   );
 }
