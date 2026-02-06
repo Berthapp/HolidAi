@@ -1057,6 +1057,8 @@ const getNestedValue = (obj: Record<string, unknown>, path: string) => {
   }, obj);
 };
 
+export type TranslationTree = typeof translations.de;
+
 export const formatMessage = (message: string, values?: TranslationValues) => {
   if (!values) return message;
   return message.replace(/\{(\w+)\}/g, (match, key) => {
