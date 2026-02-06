@@ -153,18 +153,20 @@ export const translations = {
         intro:
           "Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Diese Erklärung informiert dich darüber, welche Daten beim Besuch von HolidAI verarbeitet werden und zu welchem Zweck.",
         contact:
-          "Verantwortliche Stelle: HolidAI, Musterstraße 1, 12345 Musterstadt, Deutschland. Kontakt: hallo@holidai.de.",
+          "Verantwortliche Stelle: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Schweiz. Kontakt: info@holidai.ch.",
         dataTitle: "Verarbeitete Daten",
         dataItems: [
-          "Kontakt- und Inhaltsdaten, die du aktiv eingibst.",
-          "Nutzungsdaten zur Sicherstellung der Website-Funktion.",
-          "Server-Logfiles zur technischen Analyse und Sicherheit.",
+          "Daten, die du aktiv eingibst (z. B. Kontakt- oder Inhaltsdaten).",
+          "Nutzungs- und Zugriffsdaten (z. B. IP-Adresse, Browsertyp) zur Sicherstellung der Website-Funktion.",
+          "Server-Logfiles zu Betrieb, Analyse und Sicherheit.",
+          "Hosting der Website über Vercel (Vercel Inc.).",
+          "Domain-Hosting über Hostpoint AG (Schweiz).",
         ],
         rightsTitle: "Deine Rechte",
         rightsBody:
           "Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Datenübertragbarkeit. Außerdem kannst du der Verarbeitung widersprechen.",
         rightsNote:
-          "Hinweis: Ergänze hier deine tatsächlichen Prozesse (z. B. Hosting, Tracking, Newsletter) und die dazugehörigen Informationen.",
+          "Für Anfragen zu deinen Rechten kontaktiere uns bitte unter info@holidai.ch.",
       },
       imprint: {
         title: "Impressum",
@@ -337,18 +339,20 @@ export const translations = {
         intro:
           "Nous prenons la protection de vos données personnelles très au sérieux. Cette déclaration vous informe des données traitées lors de la visite de HolidAI et de leur finalité.",
         contact:
-          "Entité responsable : HolidAI, Musterstraße 1, 12345 Musterstadt, Allemagne. Contact : hallo@holidai.de.",
+          "Entité responsable : Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Suisse. Contact : info@holidai.ch.",
         dataTitle: "Données traitées",
         dataItems: [
-          "Données de contact et de contenu que vous saisissez activement.",
-          "Données d'utilisation pour assurer la fonctionnalité du site.",
-          "Fichiers journaux du serveur pour l'analyse technique et la sécurité.",
+          "Données que vous saisissez activement (par ex. contact ou contenu).",
+          "Données d'utilisation et d'accès (par ex. adresse IP, type de navigateur) pour assurer le bon fonctionnement du site.",
+          "Fichiers journaux du serveur pour l'exploitation, l'analyse technique et la sécurité.",
+          "Hébergement du site via Vercel (Vercel Inc.).",
+          "Hébergement du domaine via Hostpoint AG (Suisse).",
         ],
         rightsTitle: "Vos droits",
         rightsBody:
           "Vous avez à tout moment le droit d'accès, de rectification, de suppression, de limitation du traitement ainsi que de portabilité des données. Vous pouvez également vous opposer au traitement.",
         rightsNote:
-          "Note : Ajoutez ici vos processus réels (par ex. hébergement, suivi, newsletter) et les informations associées.",
+          "Pour toute demande relative à vos droits, contactez-nous à info@holidai.ch.",
       },
       imprint: {
         title: "Mentions légales",
@@ -521,18 +525,20 @@ export const translations = {
         intro:
           "Prendiamo molto sul serio la protezione dei tuoi dati personali. Questa informativa spiega quali dati vengono trattati quando visiti HolidAI e per quale scopo.",
         contact:
-          "Titolare del trattamento: HolidAI, Musterstraße 1, 12345 Musterstadt, Germania. Contatto: hallo@holidai.de.",
+          "Titolare del trattamento: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Svizzera. Contatto: info@holidai.ch.",
         dataTitle: "Dati trattati",
         dataItems: [
-          "Dati di contatto e contenuto che inserisci attivamente.",
-          "Dati di utilizzo per garantire la funzionalità del sito.",
-          "File di log del server per analisi tecnica e sicurezza.",
+          "Dati che inserisci attivamente (ad es. contatto o contenuto).",
+          "Dati di utilizzo e accesso (ad es. indirizzo IP, tipo di browser) per garantire la funzionalità del sito.",
+          "File di log del server per esercizio, analisi tecnica e sicurezza.",
+          "Hosting del sito tramite Vercel (Vercel Inc.).",
+          "Hosting del dominio tramite Hostpoint AG (Svizzera).",
         ],
         rightsTitle: "I tuoi diritti",
         rightsBody:
           "Hai sempre il diritto di accesso, rettifica, cancellazione, limitazione del trattamento e portabilità dei dati. Puoi inoltre opporti al trattamento.",
         rightsNote:
-          "Nota: aggiungi qui i tuoi processi reali (es. hosting, tracking, newsletter) e le informazioni correlate.",
+          "Per richieste relative ai tuoi diritti, contattaci a info@holidai.ch.",
       },
       imprint: {
         title: "Note legali",
@@ -706,18 +712,20 @@ export const translations = {
         intro:
           "Nus prendain fitg serius la protecziun da tias datas persunalas. Questa decleraziun ta infurmescha tge datas vegnan tractadas durant la visita da HolidAI e cun tge intent.",
         contact:
-          "Post responsabel: HolidAI, Musterstraße 1, 12345 Musterstadt, Germania. Contact: hallo@holidai.de.",
+          "Post responsabel: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Svizra. Contact: info@holidai.ch.",
         dataTitle: "Datas tractadas",
         dataItems: [
-          "Datas da contact e da cuntegn che ti endateschas activamain.",
-          "Datas d'utilisaziun per garantir la funcziun da la website.",
-          "Logfiles dal server per analisa tecnica e segirezza.",
+          "Datas che ti endateschas activamain (p.ex. contact u cuntegn).",
+          "Datas d'utilisaziun e d'access (p.ex. adressa IP, tip da browser) per garantir la funcziun da la website.",
+          "Logfiles dal server per funcziunament, analisa tecnica e segirezza.",
+          "Hosting da la website via Vercel (Vercel Inc.).",
+          "Hosting da la domain via Hostpoint AG (Svizra).",
         ],
         rightsTitle: "Tes dretgs",
         rightsBody:
           "Ti has adina il dretg d'infurmaziun, rectificaziun, stizzar, limitar il tractament sco er transferibilitad da datas. Ti pos er far opposiziun al tractament.",
         rightsNote:
-          "Infurmaziun: agiunta qua tes process effectivs (p.ex. hosting, tracking, newsletter) e las infurmaziuns relevantas.",
+          "Per dumondas davart tes dretgs ans contactescha per plaschair sin info@holidai.ch.",
       },
       imprint: {
         title: "Impressum",
@@ -889,18 +897,20 @@ export const translations = {
         intro:
           "We take the protection of your personal data very seriously. This statement informs you about which data is processed when visiting HolidAI and for what purpose.",
         contact:
-          "Responsible entity: HolidAI, Musterstraße 1, 12345 Musterstadt, Germany. Contact: hallo@holidai.de.",
+          "Responsible entity: Enzo Berther (HolidAI), Sonnenbergstrasse 12, 7205 Zizers, Switzerland. Contact: info@holidai.ch.",
         dataTitle: "Processed data",
         dataItems: [
-          "Contact and content data you actively provide.",
-          "Usage data to ensure website functionality.",
-          "Server log files for technical analysis and security.",
+          "Data you actively provide (e.g. contact or content data).",
+          "Usage and access data (e.g. IP address, browser type) to ensure website functionality.",
+          "Server log files for operation, technical analysis, and security.",
+          "Website hosting via Vercel (Vercel Inc.).",
+          "Domain hosting via Hostpoint AG (Switzerland).",
         ],
         rightsTitle: "Your rights",
         rightsBody:
           "You always have the right to access, rectify, delete, restrict processing, and data portability. You can also object to processing.",
         rightsNote:
-          "Note: Add your actual processes (e.g. hosting, tracking, newsletter) and related information here.",
+          "For requests regarding your rights, please contact us at info@holidai.ch.",
       },
       imprint: {
         title: "Legal notice",
