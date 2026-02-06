@@ -16,7 +16,7 @@ export type TravelMode = "Car" | "Train" | "Flight" | "Ferry" | "Other";
 export type PlanningAnswers = {
   destination: string;
   duration: string;
-  travelMode: TravelMode | "";
+  travelMode: string;
   travelStyle: TravelStyle | "";
   budget: BudgetFeeling | "";
   travelers: string;
