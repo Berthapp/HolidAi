@@ -138,7 +138,7 @@ export const translations = {
       agb: {
         title: "Allgemeine Geschäftsbedingungen (AGB)",
         intro:
-          "Diese Allgemeinen Geschäftsbedingungen regeln die Nutzung der HolidAI Plattform. Mit der Nutzung unserer Services erklärst du dich mit den folgenden Bedingungen einverstanden.",
+          "Diese Allgemeinen Geschäftsbedingungen regeln die Nutzung der HolidAI Plattform. Anbieter: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Schweiz, info@holidai.ch. Mit der Nutzung unserer Services erklärst du dich mit den folgenden Bedingungen einverstanden.",
         servicesTitle: "Leistungen",
         servicesBody:
           "HolidAI stellt KI-gestützte Reisevorschläge bereit. Die bereitgestellten Informationen dienen der Orientierung und ersetzen keine verbindliche Buchungs- oder Rechtsberatung.",
@@ -168,15 +168,15 @@ export const translations = {
       },
       imprint: {
         title: "Impressum",
-        company: "HolidAI",
-        address: "Musterstraße 1\n12345 Musterstadt\nDeutschland",
+        company: "Enzo Berther",
+        address: "Privatperson\nSonnenbergstrasse 12\n7205 Zizers\nSchweiz",
         contact:
-          "Vertreten durch: Max Mustermann\nE-Mail: hallo@holidai.de\nTelefon: +49 123 456 789",
+          "E-Mail: info@holidai.ch",
         responsibleTitle: "Verantwortlich für den Inhalt",
         responsibleBody:
-          "Verantwortlich nach § 55 Abs. 2 RStV: Max Mustermann, Musterstraße 1, 12345 Musterstadt.",
+          "Verantwortlich nach § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Schweiz.",
         responsibleNote:
-          "Hinweis: Bitte ersetze die Platzhalter durch die korrekten Angaben deines Unternehmens.",
+          "Privatperson, Kontakt siehe oben.",
       },
       copyright: {
         title: "Copyright@2026",
@@ -322,7 +322,7 @@ export const translations = {
       agb: {
         title: "Conditions générales (CGV)",
         intro:
-          "Ces conditions générales régissent l'utilisation de la plateforme HolidAI. En utilisant nos services, vous acceptez les conditions suivantes.",
+          "Ces conditions générales régissent l'utilisation de la plateforme HolidAI. Fournisseur : Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Suisse, info@holidai.ch. En utilisant nos services, vous acceptez les conditions suivantes.",
         servicesTitle: "Prestations",
         servicesBody:
           "HolidAI fournit des suggestions de voyage assistées par IA. Les informations fournies sont indicatives et ne remplacent pas des conseils de réservation ou juridiques contraignants.",
@@ -352,15 +352,15 @@ export const translations = {
       },
       imprint: {
         title: "Mentions légales",
-        company: "HolidAI",
-        address: "Musterstraße 1\n12345 Musterstadt\nAllemagne",
+        company: "Enzo Berther",
+        address: "Privatperson\nSonnenbergstrasse 12\n7205 Zizers\nSuisse",
         contact:
-          "Représenté par : Max Mustermann\nE-mail : hallo@holidai.de\nTéléphone : +49 123 456 789",
+          "E-mail : info@holidai.ch",
         responsibleTitle: "Responsable du contenu",
         responsibleBody:
-          "Responsable conformément au § 55 Abs. 2 RStV : Max Mustermann, Musterstraße 1, 12345 Musterstadt.",
+          "Responsable conformément au § 55 Abs. 2 RStV : Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Suisse.",
         responsibleNote:
-          "Note : Veuillez remplacer les espaces réservés par les informations correctes de votre entreprise.",
+          "Privatperson, contact ci-dessus.",
       },
       copyright: {
         title: "Copyright@2026",
@@ -506,7 +506,7 @@ export const translations = {
       agb: {
         title: "Termini e condizioni",
         intro:
-          "Questi termini regolano l'utilizzo della piattaforma HolidAI. Utilizzando i nostri servizi accetti le seguenti condizioni.",
+          "Questi termini regolano l'utilizzo della piattaforma HolidAI. Fornitore: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Svizzera, info@holidai.ch. Utilizzando i nostri servizi accetti le seguenti condizioni.",
         servicesTitle: "Servizi",
         servicesBody:
           "HolidAI fornisce suggerimenti di viaggio assistiti dall'IA. Le informazioni offerte sono indicative e non sostituiscono consulenze vincolanti di prenotazione o legali.",
@@ -536,15 +536,15 @@ export const translations = {
       },
       imprint: {
         title: "Note legali",
-        company: "HolidAI",
-        address: "Musterstraße 1\n12345 Musterstadt\nGermania",
+        company: "Enzo Berther",
+        address: "Privatperson\nSonnenbergstrasse 12\n7205 Zizers\nSvizzera",
         contact:
-          "Rappresentato da: Max Mustermann\nEmail: hallo@holidai.de\nTelefono: +49 123 456 789",
+          "Email: info@holidai.ch",
         responsibleTitle: "Responsabile del contenuto",
         responsibleBody:
-          "Responsabile ai sensi del § 55 Abs. 2 RStV: Max Mustermann, Musterstraße 1, 12345 Musterstadt.",
+          "Responsabile ai sensi del § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Svizzera.",
         responsibleNote:
-          "Nota: sostituisci i segnaposto con i dati corretti della tua azienda.",
+          "Privatperson, contatto indicato sopra.",
       },
       copyright: {
         title: "Copyright@2026",
@@ -691,7 +691,7 @@ export const translations = {
       agb: {
         title: "Cundiziuns generalas",
         intro:
-          "Questas cundiziuns generalas reglan l'utilisaziun da la plattafurma HolidAI. Cun utilisar noss servetschs acceptas ti las suandantas cundiziuns.",
+          "Questas cundiziuns generalas reglan l'utilisaziun da la plattafurma HolidAI. Furnitur: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Svizra, info@holidai.ch. Cun utilisar noss servetschs acceptas ti las suandantas cundiziuns.",
         servicesTitle: "Prestaziuns",
         servicesBody:
           "HolidAI furnescha propostas da viadi sustegnidas cun IA. Las novitads servan sco orientaziun e na remplazzan betg cusseglaziuns giuridicas u reservaziuns liantas.",
@@ -721,15 +721,15 @@ export const translations = {
       },
       imprint: {
         title: "Impressum",
-        company: "HolidAI",
-        address: "Musterstraße 1\n12345 Musterstadt\nGermania",
+        company: "Enzo Berther",
+        address: "Privatperson\nSonnenbergstrasse 12\n7205 Zizers\nSvizra",
         contact:
-          "Represchentà da: Max Mustermann\nE-mail: hallo@holidai.de\nTelefon: +49 123 456 789",
+          "E-mail: info@holidai.ch",
         responsibleTitle: "Responsabel per il cuntegn",
         responsibleBody:
-          "Responsabel tenor § 55 Abs. 2 RStV: Max Mustermann, Musterstraße 1, 12345 Musterstadt.",
+          "Responsabel tenor § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Svizra.",
         responsibleNote:
-          "Infurmaziun: remplazza per plaschair ils placeholders cun las indicaziuns correctas da tia interpresa.",
+          "Privatperson, contact vesair survart.",
       },
       copyright: {
         title: "Copyright@2026",
@@ -874,7 +874,7 @@ export const translations = {
       agb: {
         title: "Terms & Conditions",
         intro:
-          "These terms govern the use of the HolidAI platform. By using our services you agree to the following conditions.",
+          "These terms govern the use of the HolidAI platform. Provider: Enzo Berther, Privatperson, Sonnenbergstrasse 12, 7205 Zizers, Switzerland, info@holidai.ch. By using our services you agree to the following conditions.",
         servicesTitle: "Services",
         servicesBody:
           "HolidAI provides AI-assisted travel suggestions. The information provided is for orientation only and does not replace binding booking or legal advice.",
@@ -904,15 +904,15 @@ export const translations = {
       },
       imprint: {
         title: "Legal notice",
-        company: "HolidAI",
-        address: "Musterstraße 1\n12345 Musterstadt\nGermany",
+        company: "Enzo Berther",
+        address: "Privatperson\nSonnenbergstrasse 12\n7205 Zizers\nSwitzerland",
         contact:
-          "Represented by: Max Mustermann\nEmail: hallo@holidai.de\nPhone: +49 123 456 789",
+          "Email: info@holidai.ch",
         responsibleTitle: "Responsible for content",
         responsibleBody:
-          "Responsible pursuant to § 55 Abs. 2 RStV: Max Mustermann, Musterstraße 1, 12345 Musterstadt.",
+          "Responsible pursuant to § 55 Abs. 2 RStV: Enzo Berther, Sonnenbergstrasse 12, 7205 Zizers, Switzerland.",
         responsibleNote:
-          "Note: Please replace the placeholders with the correct company details.",
+          "Privatperson, contact above.",
       },
       copyright: {
         title: "Copyright@2026",
