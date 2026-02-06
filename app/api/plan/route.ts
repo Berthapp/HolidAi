@@ -73,7 +73,7 @@ const serializeAnswers = (answers: PlanRequest["answers"]) => {
 const buildPrompt = (request: PlanRequest) => {
   return [
     "You are a travel planner. Create a concise travel plan in the requested locale.",
-    "Return only valid JSON that matches this schema:",
+    "Very important: Return only valid JSON that matches this schema:",
     JSON.stringify({
       destination: "string",
       recommendedDuration: "string",
@@ -85,6 +85,7 @@ const buildPrompt = (request: PlanRequest) => {
     }),
     `Locale: ${request.locale}`,
     "Use CHF for cost breakdown amounts. Keep amounts realistic and concise.",
+    "As an additional costBreakdown, calculate the total cost.",
     "Use the locale language in all labels, rationale, itinerary, and notes.",
     "If a duration is provided, base the itinerary length and cost breakdown on that duration.",
     "If you recommend a different duration, keep it in recommendedDuration but do not change the itinerary length.",
@@ -119,7 +120,6 @@ const generatePlan = async (
         body: JSON.stringify({
           model,
           temperature,
-          max_tokens: 900,
           messages: [
             {
               role: "system",
@@ -162,7 +162,6 @@ const generatePlan = async (
         },
         body: JSON.stringify({
           model,
-          max_tokens: 800,
           temperature,
           system: systemPrompt,
           messages: [
