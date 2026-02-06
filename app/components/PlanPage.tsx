@@ -7,7 +7,11 @@ import { OptionChips } from "./OptionChips";
 import { StepProgress } from "./StepProgress";
 import { useI18n, useTranslations } from "../lib/i18n";
 import { usePlan } from "../lib/plan-store";
-import { durationOptionKeys, translateOption } from "../lib/i18n-data";
+import {
+  durationOptionKeys,
+  resolveDurationLabel,
+  translateOption,
+} from "../lib/i18n-data";
 import type {
   BudgetFeeling,
   PlanRequest,
@@ -206,7 +210,7 @@ export function PlanPage() {
               <PrimaryInput
                 label={t("plan.duration.customLabel")}
                 placeholder={t("plan.duration.customPlaceholder")}
-                value={answers.duration}
+                value={resolveDurationLabel(locale, answers.duration)}
                 onChange={(event) =>
                   updateAnswer("duration", event.target.value)
                 }
