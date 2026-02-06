@@ -5,7 +5,12 @@ import { useRouter } from "next/navigation";
 import { PrimaryInput } from "../components/PrimaryInput";
 import { OptionChips } from "../components/OptionChips";
 import { StepProgress } from "../components/StepProgress";
+import { useI18n, useTranslations } from "../lib/i18n";
 import { usePlan } from "../lib/plan-store";
+import {
+  durationOptionKeys,
+  translateOption,
+} from "../lib/i18n-data";
 import type {
   BudgetFeeling,
   PlanRequest,
@@ -15,42 +20,18 @@ import type {
   TravelersGroup,
 } from "../lib/types";
 
-const durationOptions = [
-  { label: "3-5 Tage", value: "3-5 Tage" },
-  { label: "1 Woche", value: "1 Woche" },
-  { label: "2 Wochen", value: "2 Wochen" },
-  { label: "3+ Wochen", value: "3+ Wochen" },
+const travelStyleValues: TravelStyle[] = [
+  "Relax",
+  "Nature",
+  "City",
+  "Family",
+  "Couple",
+  "Backpacking",
 ];
 
-const travelStyleOptions: { label: string; value: TravelStyle }[] = [
-  { label: "Relax", value: "Relax" },
-  { label: "Natur", value: "Nature" },
-  { label: "City", value: "City" },
-  { label: "Family", value: "Family" },
-  { label: "Couple", value: "Couple" },
-  { label: "Backpacking", value: "Backpacking" },
-];
+const budgetValues: BudgetFeeling[] = ["Low", "Medium", "Comfort"];
 
-const budgetOptions: { label: string; value: BudgetFeeling }[] = [
-  { label: "Low", value: "Low" },
-  { label: "Medium", value: "Medium" },
-  { label: "Comfort", value: "Comfort" },
-];
-
-const travelerOptions: { label: string; value: TravelersGroup }[] = [
-  { label: "Solo", value: "Solo" },
-  { label: "Couple", value: "Couple" },
-  { label: "Family + kids", value: "Family + kids" },
-];
-
-const steps = [
-  { id: "destination", title: "Ziel" },
-  { id: "duration", title: "Dauer" },
-  { id: "style", title: "Stil" },
-  { id: "budget", title: "Budget" },
-  { id: "travelers", title: "Reisende" },
-  { id: "season", title: "Saison" },
-];
+const travelerValues: TravelersGroup[] = ["Solo", "Couple", "Family + kids"];
 
 const isStepValid = (stepId: string, answers: PlanningAnswers) => {
   switch (stepId) {
@@ -74,9 +55,59 @@ const isStepValid = (stepId: string, answers: PlanningAnswers) => {
 export default function PlanPage() {
   const router = useRouter();
   const { answers, updateAnswer, setResult } = usePlan();
+  const { locale } = useI18n();
+  const t = useTranslations();
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  const durationOptions = useMemo(
+    () =>
+      durationOptionKeys.map((key) => ({
+        label: translateOption(locale, "duration", key),
+        value: key,
+      })),
+    [locale]
+  );
+
+  const travelStyleOptions = useMemo(
+    () =>
+      travelStyleValues.map((value) => ({
+        label: translateOption(locale, "travelStyle", value),
+        value,
+      })),
+    [locale]
+  );
+
+  const budgetOptions = useMemo(
+    () =>
+      budgetValues.map((value) => ({
+        label: translateOption(locale, "budget", value),
+        value,
+      })),
+    [locale]
+  );
+
+  const travelerOptions = useMemo(
+    () =>
+      travelerValues.map((value) => ({
+        label: translateOption(locale, "travelers", value),
+        value,
+      })),
+    [locale]
+  );
+
+  const steps = useMemo(
+    () => [
+      { id: "destination", title: t("plan.steps.destination") },
+      { id: "duration", title: t("plan.steps.duration") },
+      { id: "style", title: t("plan.steps.style") },
+      { id: "budget", title: t("plan.steps.budget") },
+      { id: "travelers", title: t("plan.steps.travelers") },
+      { id: "season", title: t("plan.steps.season") },
+    ],
+    [t]
+  );
 
   const step = steps[currentStep];
   const canProceed = isStepValid(step.id, answers);
@@ -84,14 +115,15 @@ export default function PlanPage() {
 
   const requestPayload: PlanRequest = useMemo(
     () => ({
+      locale,
       answers,
     }),
-    [answers]
+    [answers, locale]
   );
 
   const handleNext = () => {
     if (!canProceed) {
-      setError("Bitte wähle eine Option, bevor du weitergehst.");
+      setError(t("plan.errors.selectOption"));
       return;
     }
     setError("");
@@ -105,7 +137,7 @@ export default function PlanPage() {
 
   const handleSubmit = async () => {
     if (!canProceed) {
-      setError("Bitte wähle eine Option, bevor du abschließt.");
+      setError(t("plan.errors.selectOptionFinish"));
       return;
     }
     setError("");
@@ -119,7 +151,7 @@ export default function PlanPage() {
         body: JSON.stringify(requestPayload),
       });
       if (!response.ok) {
-        throw new Error("Plan konnte nicht erstellt werden.");
+        throw new Error(t("plan.errors.planFailed"));
       }
       const data = (await response.json()) as TravelPlanResponse;
       setResult(data);
@@ -128,7 +160,7 @@ export default function PlanPage() {
       setError(
         submitError instanceof Error
           ? submitError.message
-          : "Unerwarteter Fehler."
+          : t("plan.errors.unexpected")
       );
     } finally {
       setIsSubmitting(false);
@@ -140,10 +172,13 @@ export default function PlanPage() {
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-10">
         <header className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-            Schritt {currentStep + 1} von {steps.length}
+            {t("plan.stepLabel", {
+              current: currentStep + 1,
+              total: steps.length,
+            })}
           </p>
           <h1 className="text-3xl font-semibold text-slate-900">
-            Lass uns deinen Urlaub planen.
+            {t("plan.title")}
           </h1>
           <StepProgress steps={steps} currentStep={currentStep} />
         </header>
@@ -152,13 +187,13 @@ export default function PlanPage() {
           {step.id === "destination" ? (
             <div className="space-y-4">
               <PrimaryInput
-                label="Destination"
-                placeholder="z. B. Marrakesch"
+                label={t("plan.destination.label")}
+                placeholder={t("plan.destination.placeholder")}
                 value={answers.destination}
                 onChange={(event) =>
                   updateAnswer("destination", event.target.value)
                 }
-                hint="Du kannst das Ziel später anpassen."
+                hint={t("plan.destination.hint")}
               />
             </div>
           ) : null}
@@ -167,7 +202,7 @@ export default function PlanPage() {
             <div className="space-y-6">
               <div>
                 <p className="text-sm font-medium text-slate-600">
-                  Wähle eine Dauer
+                  {t("plan.duration.choose")}
                 </p>
                 <OptionChips
                   options={durationOptions}
@@ -176,8 +211,8 @@ export default function PlanPage() {
                 />
               </div>
               <PrimaryInput
-                label="Oder eigene Dauer"
-                placeholder="z. B. 10 Tage"
+                label={t("plan.duration.customLabel")}
+                placeholder={t("plan.duration.customPlaceholder")}
                 value={answers.duration}
                 onChange={(event) => updateAnswer("duration", event.target.value)}
               />
@@ -187,7 +222,7 @@ export default function PlanPage() {
           {step.id === "style" ? (
             <div className="space-y-4">
               <p className="text-sm font-medium text-slate-600">
-                Welcher Reisestil passt zu dir?
+                {t("plan.style.question")}
               </p>
               <OptionChips
                 options={travelStyleOptions}
@@ -202,7 +237,7 @@ export default function PlanPage() {
           {step.id === "budget" ? (
             <div className="space-y-4">
               <p className="text-sm font-medium text-slate-600">
-                Wie fühlt sich dein Budget an?
+                {t("plan.budget.question")}
               </p>
               <OptionChips
                 options={budgetOptions}
@@ -215,7 +250,7 @@ export default function PlanPage() {
           {step.id === "travelers" ? (
             <div className="space-y-4">
               <p className="text-sm font-medium text-slate-600">
-                Wer reist mit?
+                {t("plan.travelers.question")}
               </p>
               <OptionChips
                 options={travelerOptions}
@@ -230,11 +265,11 @@ export default function PlanPage() {
           {step.id === "season" ? (
             <div className="space-y-4">
               <PrimaryInput
-                label="Monat / Saison (optional)"
-                placeholder="z. B. Mai oder Herbst"
+                label={t("plan.season.label")}
+                placeholder={t("plan.season.placeholder")}
                 value={answers.season}
                 onChange={(event) => updateAnswer("season", event.target.value)}
-                hint="Hilft uns bei Preisen & Wetter."
+                hint={t("plan.season.hint")}
               />
             </div>
           ) : null}
@@ -249,7 +284,7 @@ export default function PlanPage() {
             disabled={currentStep === 0}
             className="w-full rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 transition hover:border-slate-400 hover:text-slate-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
-            Zurück
+            {t("plan.buttons.back")}
           </button>
           {!isLastStep ? (
             <button
@@ -258,7 +293,7 @@ export default function PlanPage() {
               disabled={!canProceed}
               className="w-full rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-300 sm:w-auto"
             >
-              Weiter
+              {t("plan.buttons.next")}
             </button>
           ) : (
             <button
@@ -267,7 +302,7 @@ export default function PlanPage() {
               disabled={!canProceed || isSubmitting}
               className="w-full rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-300 sm:w-auto"
             >
-              {isSubmitting ? "Plane..." : "Plan erstellen"}
+              {isSubmitting ? t("plan.buttons.submitting") : t("plan.buttons.submit")}
             </button>
           )}
         </div>

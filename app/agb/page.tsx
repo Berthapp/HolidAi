@@ -1,45 +1,38 @@
+"use client";
+
+import { useTranslations } from "../lib/i18n";
+
 export default function AgbPage() {
+  const t = useTranslations();
+
   return (
     <main className="mx-auto flex min-h-[70vh] w-full max-w-3xl flex-col gap-6 px-6 py-16">
       <header>
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-600">
-          Rechtliches
+          {t("legal.kicker")}
         </p>
         <h1 className="mt-2 text-3xl font-semibold text-slate-900">
-          Allgemeine Geschäftsbedingungen (AGB)
+          {t("legal.agb.title")}
         </h1>
       </header>
 
       <section className="space-y-3 text-sm text-slate-600">
-        <p>
-          Diese Allgemeinen Geschäftsbedingungen regeln die Nutzung der HolidAI
-          Plattform. Mit der Nutzung unserer Services erklärst du dich mit den
-          folgenden Bedingungen einverstanden.
-        </p>
-      </section>
-
-      <section className="space-y-3 text-sm text-slate-600">
-        <h2 className="text-base font-semibold text-slate-800">Leistungen</h2>
-        <p>
-          HolidAI stellt KI-gestützte Reisevorschläge bereit. Die bereitgestellten
-          Informationen dienen der Orientierung und ersetzen keine verbindliche
-          Buchungs- oder Rechtsberatung.
-        </p>
+        <p>{t("legal.agb.intro")}</p>
       </section>
 
       <section className="space-y-3 text-sm text-slate-600">
         <h2 className="text-base font-semibold text-slate-800">
-          Haftung &amp; Gewährleistung
+          {t("legal.agb.servicesTitle")}
         </h2>
-        <p>
-          Wir haften nur für Schäden, die auf vorsätzlicher oder grob fahrlässiger
-          Pflichtverletzung beruhen. Für die Aktualität der Inhalte übernehmen wir
-          keine Gewähr.
-        </p>
-        <p>
-          Hinweis: Bitte ergänze deine spezifischen Bedingungen, Preise und
-          Leistungsbeschreibungen.
-        </p>
+        <p>{t("legal.agb.servicesBody")}</p>
+      </section>
+
+      <section className="space-y-3 text-sm text-slate-600">
+        <h2 className="text-base font-semibold text-slate-800">
+          {t("legal.agb.liabilityTitle")}
+        </h2>
+        <p>{t("legal.agb.liabilityBody")}</p>
+        <p>{t("legal.agb.liabilityNote")}</p>
       </section>
     </main>
   );
