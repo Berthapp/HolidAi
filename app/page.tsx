@@ -32,13 +32,13 @@ export default function Home() {
         <div className="absolute right-1/3 top-1/3 h-64 w-64 rounded-full bg-amber-200/60 blur-3xl" />
       </div>
 
-      <div className="relative w-full max-w-3xl text-center">
-        <div className="mx-auto flex w-full max-w-2xl flex-col items-center">
+      <div className="relative w-full max-w-4xl text-center">
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="HolidAI Logo"
-            width={520}
-            height={160}
+            width={620}
+            height={190}
             className="h-auto w-full"
             priority
           />
@@ -57,11 +57,11 @@ export default function Home() {
 
       <form
         onSubmit={handleSubmit}
-        className="relative mt-12 w-full max-w-2xl rounded-3xl border border-white/70 bg-white/80 p-8 shadow-xl shadow-teal-100/60 backdrop-blur"
+        className="relative mt-12 w-full max-w-4xl"
       >
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-600/10">
-            <Image src="/logo.svg" alt="" width={20} height={20} />
+            <Image src="/logo.png" alt="" width={20} height={20} />
           </div>
           <div className="text-left">
             <p className="text-sm font-semibold text-slate-900">

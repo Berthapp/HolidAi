@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PlanProvider } from "./lib/plan-store";
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description:
     "Minimaler AI-Reiseplaner: Hol dir in Minuten deinen strukturierten Urlaubsvorschlag.",
   manifest: "/site.webmanifest",
-  themeColor: "#128986",
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -27,6 +26,10 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
     shortcut: "/favicon.ico",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#128986",
 };
 
 export default function RootLayout({
