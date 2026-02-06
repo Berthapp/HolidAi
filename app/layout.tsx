@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 import { PlanProvider } from "./lib/plan-store";
 import { Footer } from "./components/Footer";
@@ -18,10 +19,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const metadataBase = new URL("https://holidai.ch");
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
-  title: "HolidAI · Smarter Urlaub planen",
+  metadataBase,
+  title: {
+    default: "HolidAI · Smarter Urlaub planen",
+    template: "%s · HolidAI",
+  },
   description:
     "Minimaler AI-Reiseplaner: Hol dir in Minuten deinen strukturierten Urlaubsvorschlag.",
+  applicationName: "HolidAI",
+  generator: "Next.js",
+  alternates: {
+    canonical: "/",
+  },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -31,6 +44,26 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
     shortcut: "/favicon.ico",
   },
+  openGraph: {
+    title: "HolidAI · Smarter Urlaub planen",
+    description:
+      "Minimaler AI-Reiseplaner: Hol dir in Minuten deinen strukturierten Urlaubsvorschlag.",
+    url: "/",
+    siteName: "HolidAI",
+    locale: "de_CH",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "HolidAI · Smarter Urlaub planen",
+    description:
+      "Minimaler AI-Reiseplaner: Hol dir in Minuten deinen strukturierten Urlaubsvorschlag.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  verification: googleVerification ? { google: googleVerification } : undefined,
 };
 
 export const viewport: Viewport = {
@@ -42,11 +75,64 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const analyticsId = process.env.NEXT_PUBLIC_GA_ID;
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "HolidAI",
+      url: metadataBase.toString(),
+      logo: `${metadataBase.toString()}logo.png`,
+      founder: {
+        "@type": "Person",
+        name: "Enzo Berther",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "HolidAI",
+      url: metadataBase.toString(),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: "HolidAI",
+      url: metadataBase.toString(),
+      applicationCategory: "TravelApplication",
+      operatingSystem: "All",
+    },
+  ];
+
   return (
-    <html lang="de">
+    <html lang="de-CH">
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 text-slate-900 antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        {analyticsId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="ga-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${analyticsId}', { anonymize_ip: true });
+                `,
+              }}
+            />
+          </>
+        ) : null}
         <I18nProvider>
           <PlanProvider>
             <div className="flex min-h-screen flex-col">
