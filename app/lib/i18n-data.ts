@@ -73,6 +73,18 @@ export const translations = {
       },
       travelers: {
         question: "Wer reist mit?",
+        childrenLabel: "Wie viele Kinder reisen mit?",
+        childrenPlaceholder: "z. B. 2",
+        childrenHint: "Wir berücksichtigen die Anzahl für Budget & Programm.",
+      },
+      loading: {
+        title: "Reiseplan läuft",
+        subtitle: "Wir stellen deinen Urlaub zusammen.",
+        messages: [
+          "Wir recherchieren die Destination und die beste Reisezeit.",
+          "Wir suchen Highlights und familienfreundliche Orte.",
+          "Wir bauen eine Route mit passenden Tagesideen.",
+        ],
       },
       season: {
         question: "Welche Saison passt dir?",
@@ -267,6 +279,18 @@ export const translations = {
       },
       travelers: {
         question: "Qui voyage avec vous ?",
+        childrenLabel: "Combien d'enfants voyagent avec vous ?",
+        childrenPlaceholder: "p. ex. 2",
+        childrenHint: "Nous en tenons compte pour le budget et le programme.",
+      },
+      loading: {
+        title: "Planification en cours",
+        subtitle: "Nous préparons votre itinéraire.",
+        messages: [
+          "Nous recherchons la destination et la meilleure période.",
+          "Nous cherchons des incontournables et des lieux adaptés aux familles.",
+          "Nous construisons un itinéraire avec des idées de journées.",
+        ],
       },
       season: {
         question: "Quelle saison préférez-vous ?",
@@ -461,6 +485,18 @@ export const translations = {
       },
       travelers: {
         question: "Chi viaggia con te?",
+        childrenLabel: "Quanti bambini viaggiano con te?",
+        childrenPlaceholder: "es. 2",
+        childrenHint: "Lo consideriamo per budget e programma.",
+      },
+      loading: {
+        title: "Pianificazione in corso",
+        subtitle: "Stiamo preparando il tuo viaggio.",
+        messages: [
+          "Stiamo cercando la destinazione e il periodo migliore.",
+          "Selezioniamo attrazioni e luoghi adatti alle famiglie.",
+          "Costruiamo un itinerario con idee giornaliere.",
+        ],
       },
       season: {
         question: "Quale stagione preferisci?",
@@ -655,6 +691,18 @@ export const translations = {
       },
       travelers: {
         question: "Tgi viagia cun tai?",
+        childrenLabel: "Dumbraziuns d'uffants che viagian cun tai?",
+        childrenPlaceholder: "p.ex. 2",
+        childrenHint: "Nus resguardain quai per budget e program.",
+      },
+      loading: {
+        title: "Planisaziun en curs",
+        subtitle: "Nus tschentain ensemen tia vacanza.",
+        messages: [
+          "Nus tschertgain la destinaziun ed il meglier temp.",
+          "Nus tschertgain highlights e lieus adattads per famiglias.",
+          "Nus construin ina ruta cun novitads per mintga di.",
+        ],
       },
       season: {
         question: "Tge stagiun ta stat bain?",
@@ -850,6 +898,18 @@ export const translations = {
       },
       travelers: {
         question: "Who is traveling with you?",
+        childrenLabel: "How many kids are traveling with you?",
+        childrenPlaceholder: "e.g. 2",
+        childrenHint: "We factor this into budget and activities.",
+      },
+      loading: {
+        title: "Planning in progress",
+        subtitle: "We're putting your trip together.",
+        messages: [
+          "Researching the destination and best timing.",
+          "Looking up highlights and family-friendly spots.",
+          "Building a route with daily ideas.",
+        ],
       },
       season: {
         question: "Which season suits you?",
