@@ -4,8 +4,6 @@ import type { Locale } from "../../lib/i18n-data";
 import type { PlanRequest, TravelPlanResponse } from "../../lib/types";
 import { rateLimit } from "../../lib/rate-limit";
 
-type LlmProvider = "openai" | "anthropic" | "google";
-const usedLLM: LlmProvider = "openai";
 
 const requestSchema = z.object({
   locale: z.enum(["de", "en", "fr", "it", "rm"]).optional().default("de"),
@@ -79,7 +77,6 @@ const buildPrompt = (request: PlanRequest) => {
 const generatePlan = async (
   request: PlanRequest
 ): Promise<TravelPlanResponse> => {
-  const provider: LlmProvider = usedLLM;
   const prompt = buildPrompt(request);
   const systemPrompt =
     "You respond with JSON only. Do not include markdown or code fences.";
@@ -87,7 +84,7 @@ const generatePlan = async (
 
   let content: string | undefined;
 
-  switch (provider) {
+  switch (process.env.USED_LLM_PROVIDER) {
     case "openai": {
       const apiKey = process.env.OPENAI_API_KEY;
       if (!apiKey) {
