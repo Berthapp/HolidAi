@@ -43,6 +43,13 @@ export function DatenschutzPage() {
 
       <section className="space-y-3 text-sm text-slate-600">
         <h2 className="text-base font-semibold text-slate-800">
+          {t("legal.privacy.affiliateTitle")}
+        </h2>
+        <p>{t("legal.privacy.affiliateBody")}</p>
+      </section>
+
+      <section className="space-y-3 text-sm text-slate-600">
+        <h2 className="text-base font-semibold text-slate-800">
           {t("legal.privacy.rightsTitle")}
         </h2>
         <p>{t("legal.privacy.rightsBody")}</p>

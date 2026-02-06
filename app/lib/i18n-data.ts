@@ -177,6 +177,9 @@ export const translations = {
         servicesTitle: "Leistungen",
         servicesBody:
           "HolidAI erstellt KI-gestützte Reiseideen und -pläne auf Basis deiner Angaben. Die Inhalte dienen der Information; verbindliche Buchungen erfolgen ausschliesslich über Dritte.",
+        affiliateTitle: "Partnerlinks & Provisionen",
+        affiliateBody:
+          "Einige Links zu Unterkünften, Aktivitäten oder Mietwagen sind Partnerlinks. Wenn du darüber buchst, erhalten wir ggf. eine Provision. Für dich bleibt der Preis gleich.",
         liabilityTitle: "Haftung & Gewährleistung",
         liabilityBody:
           "Wir haften nur für Schäden aus vorsätzlicher oder grob fahrlässiger Pflichtverletzung. Für Inhalte externer Links, die Verfügbarkeit von Drittanbietern oder Preis- und Leistungsangaben übernehmen wir keine Gewähr.",
@@ -201,6 +204,9 @@ export const translations = {
         aiTitle: "Einsatz von KI-Diensten",
         aiBody:
           "Zur Erstellung von Reisevorschlägen nutzen wir je nach Konfiguration einen KI-Dienst (z. B. OpenAI, Anthropic oder Google). Deine Eingaben werden an den jeweiligen Anbieter übermittelt. Daten können dabei in Länder ausserhalb der Schweiz/EWR übertragen werden; wir stützen uns auf anerkannte Garantien wie Standardvertragsklauseln.",
+        affiliateTitle: "Partnerlinks & Klicktracking",
+        affiliateBody:
+          "Wenn du einen Partnerlink anklickst, leiten wir dich zu Drittanbietern weiter. Dabei können technische Daten wie Zeitpunkt, Referrer, Browser/Device-Informationen und ggf. IP-Adresse verarbeitet und in Server-Logs gespeichert werden. Diese Verarbeitung erfolgt zur Abwicklung und Dokumentation von Partnerprogrammen.",
         rightsTitle: "Deine Rechte",
         rightsBody:
           "Du hast das Recht auf Auskunft, Herausgabe, Berichtigung, Löschung und Widerspruch. Zudem kannst du die Einschränkung der Bearbeitung verlangen.",
@@ -402,6 +408,9 @@ export const translations = {
         servicesTitle: "Prestations",
         servicesBody:
           "HolidAI fournit des idées et des plans de voyage assistés par IA à partir de vos saisies. Les contenus sont informatifs ; les réservations se font exclusivement auprès de tiers.",
+        affiliateTitle: "Liens partenaires et commissions",
+        affiliateBody:
+          "Certains liens vers des hébergements, activités ou locations de voitures sont des liens partenaires. Si vous réservez via ces liens, nous pouvons percevoir une commission. Le prix reste identique pour vous.",
         liabilityTitle: "Responsabilité et garantie",
         liabilityBody:
           "Nous ne répondons que des dommages causés par une faute intentionnelle ou une négligence grave. Aucune garantie pour les liens externes, la disponibilité des tiers ou les indications de prix et prestations.",
@@ -426,6 +435,9 @@ export const translations = {
         aiTitle: "Utilisation de services d'IA",
         aiBody:
           "Pour générer des suggestions de voyage, nous utilisons selon la configuration un service d'IA (par ex. OpenAI, Anthropic ou Google). Vos saisies sont transmises au prestataire concerné. Des transferts de données hors Suisse/EEE peuvent avoir lieu ; nous nous appuyons sur des garanties reconnues telles que les clauses contractuelles types.",
+        affiliateTitle: "Liens partenaires et suivi des clics",
+        affiliateBody:
+          "Lorsque vous cliquez sur un lien partenaire, nous vous redirigeons vers des prestataires tiers. Des données techniques telles que l'heure, le référent, les informations de navigateur/appareil et, le cas échéant, l'adresse IP peuvent être traitées et consignées dans les journaux serveur. Ce traitement sert à l'exécution et à la documentation des programmes partenaires.",
         rightsTitle: "Vos droits",
         rightsBody:
           "Vous disposez d'un droit d'accès, de remise d'une copie, de rectification, d'effacement et d'opposition. Vous pouvez également demander la limitation du traitement.",
@@ -627,6 +639,9 @@ export const translations = {
         servicesTitle: "Servizi",
         servicesBody:
           "HolidAI fornisce idee e piani di viaggio assistiti dall'IA sulla base dei tuoi input. I contenuti sono informativi; le prenotazioni avvengono esclusivamente tramite terzi.",
+        affiliateTitle: "Link partner e commissioni",
+        affiliateBody:
+          "Alcuni link verso alloggi, attività o autonoleggi sono link partner. Se prenoti tramite questi link, possiamo ricevere una commissione. Il prezzo per te resta invariato.",
         liabilityTitle: "Responsabilità e garanzia",
         liabilityBody:
           "Rispondiamo solo per danni causati da violazioni intenzionali o da grave negligenza. Nessuna garanzia per link esterni, disponibilità dei terzi o indicazioni di prezzo e prestazioni.",
@@ -651,6 +666,9 @@ export const translations = {
         aiTitle: "Uso di servizi di IA",
         aiBody:
           "Per generare suggerimenti di viaggio utilizziamo, a seconda della configurazione, un servizio di IA (ad es. OpenAI, Anthropic o Google). I tuoi input vengono trasmessi al relativo fornitore. I dati possono essere trasferiti fuori dalla Svizzera/SEE; ci basiamo su garanzie riconosciute come le clausole contrattuali standard.",
+        affiliateTitle: "Link partner e tracciamento dei clic",
+        affiliateBody:
+          "Quando clicchi su un link partner, ti reindirizziamo a fornitori terzi. Possono essere trattati dati tecnici come orario, referrer, informazioni su browser/dispositivo e, se applicabile, indirizzo IP, e registrati nei log del server. Questo trattamento serve all'esecuzione e alla documentazione dei programmi partner.",
         rightsTitle: "I tuoi diritti",
         rightsBody:
           "Hai il diritto di accesso, di ottenere una copia, di rettifica, di cancellazione e di opposizione. Puoi inoltre richiedere la limitazione del trattamento.",
@@ -853,6 +871,9 @@ export const translations = {
         servicesTitle: "Prestaziuns",
         servicesBody:
           "HolidAI furnescha novitads ed ideas da viadi sustegnidas cun IA sin basa da tias indicaziuns. Ils cuntegns servan sco infurmaziun; reservaziuns vegnan fatgas mo tar terzs.",
+        affiliateTitle: "Links da partenari e cumissiuns",
+        affiliateBody:
+          "Tscherts links tar alloschis, activitads u autos da locaziun èn links da partenari. Sche ti fas ina reservaziun via quels, pudain nus survegnir ina cumissiun. Per tai restan ils pretschs eguals.",
         liabilityTitle: "Responsabilitad & garanzia",
         liabilityBody:
           "Nus essan mo responsabels per donns ch'èn causads d'in agir intenziunà u grevamain negligient. Nagin'assicuranza per links externs, la disponibladad da terzs u indicaziuns da prets e prestaziuns.",
@@ -877,6 +898,9 @@ export const translations = {
         aiTitle: "Utilisaziun da servetschs d'IA",
         aiBody:
           "Per generar propostas da viadi utilisain nus tenor la configuraziun in servetsch d'IA (p.ex. OpenAI, Anthropic u Google). Tias indicaziuns vegnan transmittidas al furnitur respectiv. Datas pon vegnir transferidas ordaifer Svizra/SEE; nus ans basain sin garanzias renconuschidas sco clausulas contractuala standard.",
+        affiliateTitle: "Links da partenari & tracking da clics",
+        affiliateBody:
+          "Sche ti cliccas sin in link da partenari, ta rediregin nus tar terzs. Datas tecnicas sco uras, referrer, infurmaziuns davart browser/apparat e, sche applicabel, l'adressa IP pon vegnir tractadas e memorisadas en logfiles dal server. Questa elavuraziun serva a l'execuziun ed a la documentaziun da programs da partenari.",
         rightsTitle: "Tes dretgs",
         rightsBody:
           "Ti has il dretg d'infurmaziun, da survegnir ina copia, da rectificaziun, da stizzar e d'opposiziun. Ti pos era dumandar ina limitaziun dal tractament.",
@@ -1076,6 +1100,9 @@ export const translations = {
         servicesTitle: "Services",
         servicesBody:
           "HolidAI provides AI-assisted travel ideas and plans based on your inputs. The content is informational; bookings are made exclusively with third parties.",
+        affiliateTitle: "Affiliate links & commissions",
+        affiliateBody:
+          "Some links to accommodations, activities, or car rentals are affiliate links. If you book through them, we may receive a commission. The price stays the same for you.",
         liabilityTitle: "Liability & warranty",
         liabilityBody:
           "We are only liable for damages caused by intentional or grossly negligent breaches of duty. We provide no warranty for external links, third-party availability, or price and service details.",
@@ -1100,6 +1127,9 @@ export const translations = {
         aiTitle: "Use of AI services",
         aiBody:
           "To generate travel suggestions, we use an AI service depending on configuration (e.g. OpenAI, Anthropic, or Google). Your inputs are transmitted to the respective provider. Data may be transferred outside Switzerland/EEA; we rely on recognized safeguards such as standard contractual clauses.",
+        affiliateTitle: "Affiliate links & click tracking",
+        affiliateBody:
+          "When you click an affiliate link, we redirect you to third-party providers. Technical data such as timestamp, referrer, browser/device information, and, if applicable, IP address may be processed and stored in server logs. This processing supports affiliate program execution and documentation.",
         rightsTitle: "Your rights",
         rightsBody:
           "You have the right to access, obtain a copy, rectify, delete, and object. You can also request a restriction of processing.",

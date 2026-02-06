@@ -29,6 +29,13 @@ export function AgbPage() {
 
       <section className="space-y-3 text-sm text-slate-600">
         <h2 className="text-base font-semibold text-slate-800">
+          {t("legal.agb.affiliateTitle")}
+        </h2>
+        <p>{t("legal.agb.affiliateBody")}</p>
+      </section>
+
+      <section className="space-y-3 text-sm text-slate-600">
+        <h2 className="text-base font-semibold text-slate-800">
           {t("legal.agb.liabilityTitle")}
         </h2>
         <p>{t("legal.agb.liabilityBody")}</p>
