@@ -14,6 +14,26 @@ app/
   page.tsx                 # Landing page
 ```
 
+## Affiliate setup
+
+Copy `.env.local.example` to `.env.local` and fill in the affiliate IDs:
+
+```
+AFF_BOOKING_AID=""
+AFF_GYG_PARTNER_ID=""
+AFF_DISCOVERCARS_AID=""
+AFF_BASE_URL="https://holidai.ch"
+AFF_ENABLE_CLICK_LOGGING="false"
+```
+
+Affiliate links are built server-side and routed through `/affiliate/[partner]` so clicks can be logged before redirecting to the partner URL.
+
+### Adding a new partner later
+
+1. Add a new entry to `Partner` and `buildAffiliateUrl` in `app/lib/affiliate/partners.ts`.
+2. Allowlist the partner hostname in `app/affiliate/[partner]/route.ts`.
+3. Add a CTA in the UI using `AffiliateButton` and update disclosures if needed.
+
 ## Extending the plan API with a real LLM later
 
 1. Replace `buildMockPlan` in `app/api/plan/route.ts` with an OpenAI/LLM call.
