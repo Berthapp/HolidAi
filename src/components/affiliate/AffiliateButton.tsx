@@ -51,7 +51,7 @@ export function AffiliateButton({
     <a
       href={resolvedHref ?? "#"}
       target="_blank"
-      rel="sponsored nofollow"
+      rel="sponsored nofollow noopener noreferrer"
       className={`inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-slate-800 ${
         isReady ? "" : "pointer-events-none opacity-50"
       } ${className ?? ""}`}
