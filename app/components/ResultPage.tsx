@@ -88,9 +88,9 @@ export function ResultPage() {
     language: locale,
   };
 
-  const bookingPartner: Partner = "booking";
-  const activityPartner: Partner = "getyourguide";
-  const carPartner: Partner = "discovercars";
+  const bookingPartner: Partner = Partner.Booking;
+  const activityPartner: Partner = Partner.GetYourGuide;
+  const carPartner: Partner = Partner.DiscoverCars;
 
   return (
     <main className="min-h-screen px-6 py-12">
