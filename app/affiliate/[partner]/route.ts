@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { Partner } from "@/src/lib/affiliate/partners";
+import { Partner } from "@/app/lib/affiliate/partners";
 
 const partnerHosts: Record<Partner, string[]> = {
   [Partner.Booking]: ["booking.com"],

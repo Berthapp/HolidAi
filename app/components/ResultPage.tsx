@@ -7,13 +7,13 @@ import { ItineraryList } from "./ItineraryList";
 import { ResultCard } from "./ResultCard";
 import { useI18n, useTranslations } from "../lib/i18n";
 import { resolveDurationLabel, translateOption } from "../lib/i18n-data";
-import { AffiliateButton } from "@/src/components/affiliate/AffiliateButton";
-import { AffiliateDisclosure } from "@/src/components/affiliate/AffiliateDisclosure";
+import { AffiliateButton } from "@/app/components/affiliate/AffiliateButton";
+import { AffiliateDisclosure } from "@/app/components/affiliate/AffiliateDisclosure";
 import {
   Partner,
   type AffiliateContext,
   type Travelers,
-} from "@/src/lib/affiliate/partners";
+} from "@/app/lib/affiliate/partners";
 
 const resolveTravelers = (
   travelersLabel: string,

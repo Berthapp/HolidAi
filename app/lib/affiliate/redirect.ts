@@ -25,7 +25,7 @@ export const createRedirectUrl = (
   const baseUrl = getRequiredEnv("AFF_BASE_URL").replace(/\/$/, "");
   const partnerUrl = buildAffiliateUrl(partner, ctx);
   const destinationSummary = buildDestinationSummary(ctx.destination);
-  const redirectUrl = new URL(`${baseUrl}/r/${partner}`);
+  const redirectUrl = new URL(`${baseUrl}/affiliate/${partner}`);
   redirectUrl.searchParams.set("u", partnerUrl);
   redirectUrl.searchParams.set("d", destinationSummary);
   return redirectUrl.toString();

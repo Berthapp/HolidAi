@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getAffiliateRedirectUrl } from "@/src/lib/affiliate/actions";
-import type { AffiliateContext, Partner } from "@/src/lib/affiliate/partners";
+import { getAffiliateRedirectUrl } from "@/app/lib/affiliate/actions";
+import type { AffiliateContext, Partner } from "@/app/lib/affiliate/partners";
 
 type AffiliateButtonProps = {
   partner: Partner;
