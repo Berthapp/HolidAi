@@ -1,7 +1,6 @@
 import type { Locale } from "./i18n-data";
 
 export type TravelStyle =
-  | "Relax"
   | "Nature"
   | "City"
   | "Flexible"
@@ -10,10 +9,10 @@ export type TravelStyle =
   | "Shopping"
   | "Roadtrip"
   | "Wellness"
-  | "Budget"
   | "Luxury"
   | "Sustainable"
-  | "Adventure";
+  | "Adventure"
+  | "Beach";
 
 export type BudgetFeeling = "Low" | "Medium" | "Comfort";
 

@@ -151,7 +151,6 @@ export const translations = {
         duration_3_plus_weeks: "3+ Wochen",
       },
       travelStyle: {
-        Relax: "Entspannung",
         Nature: "Natur",
         City: "Stadt",
         Flexible: "Flexibel",
@@ -160,10 +159,10 @@ export const translations = {
         Shopping: "Shopping",
         Roadtrip: "Roadtrip",
         Wellness: "Wellness",
-        Budget: "Budget",
         Luxury: "Luxus",
         Sustainable: "Nachhaltig",
         Adventure: "Abenteuer",
+        Beach: "Strand/Baden",
       },
       budget: {
         Low: "Niedrig",
@@ -393,7 +392,6 @@ export const translations = {
         duration_3_plus_weeks: "3+ semaines",
       },
       travelStyle: {
-        Relax: "Détente",
         Nature: "Nature",
         City: "Ville",
         Flexible: "Flexibel",
@@ -402,10 +400,10 @@ export const translations = {
         Shopping: "Shopping",
         Roadtrip: "Road trip",
         Wellness: "Bien-être",
-        Budget: "Budget",
         Luxury: "Luxe",
         Sustainable: "Durable",
         Adventure: "Aventure",
+        Beach: "Plage/Baignade",
       },
       budget: {
         Low: "Faible",
@@ -635,7 +633,6 @@ export const translations = {
         duration_3_plus_weeks: "3+ settimane",
       },
       travelStyle: {
-        Relax: "Relax",
         Nature: "Natura",
         City: "Città",
         Flexible: "Flessibile",
@@ -644,10 +641,10 @@ export const translations = {
         Shopping: "Shopping",
         Roadtrip: "Road trip",
         Wellness: "Benessere",
-        Budget: "Budget",
         Luxury: "Lusso",
         Sustainable: "Sostenibile",
         Adventure: "Avventura",
+        Beach: "Spiaggia/Balneazione",
       },
       budget: {
         Low: "Basso",
@@ -878,7 +875,6 @@ export const translations = {
         duration_3_plus_weeks: "3+ emnas",
       },
       travelStyle: {
-        Relax: "Relax",
         Nature: "Natura",
         City: "Citad",
         Flexible: "Flexibel",
@@ -887,10 +883,10 @@ export const translations = {
         Shopping: "Shopping",
         Roadtrip: "Roadtrip",
         Wellness: "Wellness",
-        Budget: "Budget",
         Luxury: "Luxus",
         Sustainable: "Sustegnibel",
         Adventure: "Aventura",
+        Beach: "Plazza da badar",
       },
       budget: {
         Low: "Bass",
@@ -1118,7 +1114,6 @@ export const translations = {
         duration_3_plus_weeks: "3+ weeks",
       },
       travelStyle: {
-        Relax: "Relax",
         Nature: "Nature",
         City: "City",
         Flexible: "Flexible",
@@ -1127,10 +1122,10 @@ export const translations = {
         Shopping: "Shopping",
         Roadtrip: "Road trip",
         Wellness: "Wellness",
-        Budget: "Budget",
         Luxury: "Luxury",
         Sustainable: "Sustainable",
         Adventure: "Adventure",
+        Beach: "Beach/Swimming",
       },
       budget: {
         Low: "Low",

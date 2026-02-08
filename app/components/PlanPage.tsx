@@ -35,7 +35,6 @@ declare global {
 }
 
 const travelStyleValues: TravelStyle[] = [
-  "Relax",
   "Nature",
   "City",
   "Flexible",
@@ -44,10 +43,10 @@ const travelStyleValues: TravelStyle[] = [
   "Shopping",
   "Roadtrip",
   "Wellness",
-  "Budget",
   "Luxury",
   "Sustainable",
   "Adventure",
+  "Beach",
 ];
 
 const budgetValues: BudgetSelection[] = [
