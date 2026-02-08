@@ -88,7 +88,7 @@ export const translations = {
         childrenLabel: "Wie viele Kinder reisen mit?",
         childrenPlaceholder: "z. B. 2",
         childrenHint: "Wir berücksichtigen die Anzahl für Budget & Programm.",
-        friendsLabel: "Wie viele Freunde reisen mit?",
+        friendsLabel: "Wie viele Personen seid ihr?",
         friendsPlaceholder: "z. B. 4",
         friendsHint: "Wir berücksichtigen die Gruppengrösse im Plan.",
       },
