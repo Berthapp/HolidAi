@@ -79,7 +79,7 @@ export const translations = {
         question: "Wie sieht ihr Budget aus?",
         customLabel: "Budget angeben",
         customPlaceholder: "z. B. 2500",
-        customHint: "Gib einen Betrag in CHF an.",
+        customHint: "Gib den Gesamtpreis der Reise in CHF an.",
       },
       travelers: {
         question: "Wer reist mit?",
@@ -320,7 +320,7 @@ export const translations = {
         question: "À quoi ressemble votre budget ?",
         customLabel: "Indiquer un budget",
         customPlaceholder: "p. ex. 2500",
-        customHint: "Saisissez un montant en CHF.",
+        customHint: "Indiquez le coût total du voyage en CHF.",
       },
       travelers: {
         question: "Qui voyage avec vous ?",
@@ -561,7 +561,7 @@ export const translations = {
         question: "Qual è il tuo budget?",
         customLabel: "Indica un budget",
         customPlaceholder: "es. 2500",
-        customHint: "Inserisci un importo in CHF.",
+        customHint: "Inserisci il costo totale del viaggio in CHF.",
       },
       travelers: {
         question: "Chi viaggia con te?",
@@ -802,7 +802,7 @@ export const translations = {
         question: "Co vesa tes budget ora?",
         customLabel: "Inditgar in budget",
         customPlaceholder: "p.ex. 2500",
-        customHint: "Endatescha ina summa en CHF.",
+        customHint: "Endatescha il pretsch total da la viadi en CHF.",
       },
       travelers: {
         question: "Tgi viagia cun tai?",
@@ -1044,7 +1044,7 @@ export const translations = {
         question: "What does your budget look like?",
         customLabel: "Enter a budget",
         customPlaceholder: "e.g. 2500",
-        customHint: "Enter an amount in CHF.",
+        customHint: "Enter the total trip cost in CHF.",
       },
       travelers: {
         question: "Who is traveling with you?",
