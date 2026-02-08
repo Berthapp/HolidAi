@@ -152,7 +152,10 @@ const buildPrompt = (request: PlanRequest) => {
     "As an additional costBreakdown, calculate the total cost.",
     "Use the locale language in all labels, rationale, itinerary, and notes.",
     "If a duration is provided, base the itinerary length and cost breakdown on that duration.",
+    "recommendedDuration should be your ideal suggestion for the trip length, not just a repeat of the provided duration unless it truly matches your recommendation.",
     "If you recommend a different duration, keep it in recommendedDuration but do not change the itinerary length.",
+    "If a budget amount is provided, treat it as the total trip budget (all travelers).",
+    "If the total cost cannot fit within the budget amount, mention this clearly in the rationale or notes and explain the tradeoff.",
     "Answer data:",
     serializeAnswers(request.answers),
   ].join("\n");
