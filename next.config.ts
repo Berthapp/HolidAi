@@ -15,8 +15,13 @@ const ContentSecurityPolicy = `
   upgrade-insecure-requests;
 `;
 
+const appVersion = process.env.npm_package_version ?? "dev";
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  env: {
+    NEXT_PUBLIC_APP_VERSION: appVersion,
+  },
   async headers() {
     return [
       {
