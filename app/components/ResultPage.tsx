@@ -34,14 +34,21 @@ export function ResultPage() {
     );
   }
 
-  const travelStyleLabel = answers.travelStyle
-    ? translateOption(locale, "travelStyle", answers.travelStyle)
-    : "";
+  const travelStyleLabel =
+    answers.travelStyle.length > 0
+      ? answers.travelStyle
+          .map((style) => translateOption(locale, "travelStyle", style))
+          .join(", ")
+      : "";
   const travelersLabel = answers.travelers
     ? translateOption(locale, "travelers", answers.travelers)
     : "";
   const budgetLabel = answers.budget
-    ? translateOption(locale, "budget", answers.budget)
+    ? `${translateOption(locale, "budget", answers.budget)}${
+        answers.budget === "Custom" && answers.budgetAmount > 0
+          ? `: CHF ${answers.budgetAmount}`
+          : ""
+      }`
     : "";
   const travelModeLabel = answers.travelMode
     ? translateOption(locale, "travelMode", answers.travelMode)

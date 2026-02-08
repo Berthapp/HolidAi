@@ -13,10 +13,16 @@ const requestSchema = z.object({
       destination: z.string().trim().min(1).max(120),
       duration: z.string().trim().max(40).optional().default(""),
       travelMode: z.string().trim().max(40).optional().default(""),
-      travelStyle: z.string().trim().max(40).optional().default(""),
+      travelStyle: z
+        .array(z.string().trim().max(40))
+        .max(3)
+        .optional()
+        .default([]),
       budget: z.string().trim().max(40).optional().default(""),
+      budgetAmount: z.number().min(0).max(100000).optional().default(0),
       travelers: z.string().trim().max(40).optional().default(""),
       childrenCount: z.number().int().min(0).max(10).optional().default(0),
+      friendsCount: z.number().int().min(0).max(20).optional().default(0),
       season: z.string().trim().max(40).optional().default(""),
     })
     .strict(),
@@ -55,10 +61,16 @@ const serializeAnswers = (answers: PlanRequest["answers"]) => {
     answers.travelMode
       ? `Travel mode: ${answers.travelMode}`
       : "Travel mode: (not specified)",
-    answers.travelStyle
-      ? `Travel style: ${answers.travelStyle}`
+    answers.travelStyle.length > 0
+      ? `Travel style: ${answers.travelStyle.join(", ")}`
       : "Travel style: (not specified)",
-    answers.budget ? `Budget: ${answers.budget}` : "Budget: (not specified)",
+    answers.budget
+      ? `Budget: ${answers.budget}${
+          answers.budget === "Custom" && answers.budgetAmount > 0
+            ? ` (amount: ${answers.budgetAmount})`
+            : ""
+        }`
+      : "Budget: (not specified)",
     answers.travelers
       ? `Travelers: ${answers.travelers}`
       : "Travelers: (not specified)",
@@ -66,6 +78,9 @@ const serializeAnswers = (answers: PlanRequest["answers"]) => {
 
   if (answers.travelers === "Family + kids") {
     lines.push(`Children count: ${answers.childrenCount ?? 0}`);
+  }
+  if (answers.travelers === "Friends") {
+    lines.push(`Friends count: ${answers.friendsCount ?? 0}`);
   }
 
   lines.push(
@@ -138,6 +153,7 @@ const buildPrompt = (request: PlanRequest) => {
     "Use the locale language in all labels, rationale, itinerary, and notes.",
     "If a duration is provided, base the itinerary length and cost breakdown on that duration.",
     "If you recommend a different duration, keep it in recommendedDuration but do not change the itinerary length.",
+    "If a custom budget amount is provided, treat it as the total trip budget and keep the cost breakdown within it. If that's not feasible, explain the constraint and suggest adjustments while staying as close as possible.",
     "Answer data:",
     serializeAnswers(request.answers),
   ].join("\n");

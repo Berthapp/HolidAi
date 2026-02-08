@@ -5,11 +5,21 @@ export type TravelStyle =
   | "Nature"
   | "City"
   | "Flexible"
-  | "Backpacking";
+  | "Backpacking"
+  | "FamilyFriendly"
+  | "Shopping"
+  | "Roadtrip"
+  | "Wellness"
+  | "Budget"
+  | "Luxury"
+  | "Sustainable"
+  | "Adventure";
 
 export type BudgetFeeling = "Low" | "Medium" | "Comfort";
 
-export type TravelersGroup = "Solo" | "Couple" | "Family + kids";
+export type BudgetSelection = BudgetFeeling | "Custom";
+
+export type TravelersGroup = "Solo" | "Couple" | "Family + kids" | "Friends";
 
 export type TravelMode = "Car" | "Train" | "Flight" | "Ferry" | "Other";
 
@@ -17,10 +27,12 @@ export type PlanningAnswers = {
   destination: string;
   duration: string;
   travelMode: string;
-  travelStyle: TravelStyle | "";
-  budget: BudgetFeeling | "";
+  travelStyle: TravelStyle[];
+  budget: BudgetSelection | "";
+  budgetAmount: number;
   travelers: string;
   childrenCount: number;
+  friendsCount: number;
   season: string;
 };
 
@@ -56,10 +68,12 @@ export const examplePlanRequest: PlanRequest = {
     destination: "Lisbon",
     duration: "5-7 Tage",
     travelMode: "Flight",
-    travelStyle: "City",
+    travelStyle: ["City"],
     budget: "Medium",
+    budgetAmount: 0,
     travelers: "Couple",
     childrenCount: 0,
+    friendsCount: 0,
     season: "September",
   },
   recaptchaToken: "example-token",
