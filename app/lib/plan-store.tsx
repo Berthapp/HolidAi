@@ -16,10 +16,12 @@ export const defaultAnswers: PlanningAnswers = {
   destination: "",
   duration: "",
   travelMode: "",
-  travelStyle: "",
+  travelStyle: [],
   budget: "",
+  budgetAmount: 0,
   travelers: "",
   childrenCount: 0,
+  friendsCount: 0,
   season: "",
 };
 
@@ -53,7 +55,26 @@ export function PlanProvider({ children }: { children: React.ReactNode }) {
           result?: TravelPlanResponse | null;
         };
         if (parsed.answers) {
-          setAnswersState({ ...defaultAnswers, ...parsed.answers });
+          const normalizedAnswers = { ...defaultAnswers, ...parsed.answers };
+          if (Array.isArray(parsed.answers.travelStyle)) {
+            normalizedAnswers.travelStyle = parsed.answers.travelStyle;
+          } else if (typeof parsed.answers.travelStyle === "string") {
+            normalizedAnswers.travelStyle = parsed.answers.travelStyle
+              ? [parsed.answers.travelStyle]
+              : [];
+          } else {
+            normalizedAnswers.travelStyle = [];
+          }
+          if (typeof parsed.answers.budgetAmount !== "number") {
+            normalizedAnswers.budgetAmount = 0;
+          }
+          if (typeof parsed.answers.childrenCount !== "number") {
+            normalizedAnswers.childrenCount = 0;
+          }
+          if (typeof parsed.answers.friendsCount !== "number") {
+            normalizedAnswers.friendsCount = 0;
+          }
+          setAnswersState(normalizedAnswers);
         }
         if (parsed.result) {
           setResultState(parsed.result);

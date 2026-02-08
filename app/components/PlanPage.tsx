@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { PrimaryInput } from "./PrimaryInput";
-import { OptionChips } from "./OptionChips";
+import { MultiOptionChips, OptionChips } from "./OptionChips";
 import { StepProgress } from "./StepProgress";
 import { useI18n, useTranslationList, useTranslations } from "../lib/i18n";
 import { usePlan } from "../lib/plan-store";
@@ -14,7 +14,7 @@ import {
   translateOption,
 } from "../lib/i18n-data";
 import type {
-  BudgetFeeling,
+  BudgetSelection,
   PlanRequest,
   PlanningAnswers,
   TravelPlanResponse,
@@ -40,11 +40,29 @@ const travelStyleValues: TravelStyle[] = [
   "City",
   "Flexible",
   "Backpacking",
+  "FamilyFriendly",
+  "Shopping",
+  "Roadtrip",
+  "Wellness",
+  "Budget",
+  "Luxury",
+  "Sustainable",
+  "Adventure",
 ];
 
-const budgetValues: BudgetFeeling[] = ["Low", "Medium", "Comfort"];
+const budgetValues: BudgetSelection[] = [
+  "Low",
+  "Medium",
+  "Comfort",
+  "Custom",
+];
 
-const travelerValues: TravelersGroup[] = ["Solo", "Couple", "Family + kids"];
+const travelerValues: TravelersGroup[] = [
+  "Solo",
+  "Couple",
+  "Family + kids",
+  "Friends",
+];
 
 const travelModeValues: TravelMode[] = [
   "Car",
@@ -63,13 +81,20 @@ const isStepValid = (stepId: string, answers: PlanningAnswers) => {
     case "travelMode":
       return answers.travelMode.trim().length > 0;
     case "style":
-      return answers.travelStyle.trim().length > 0;
+      return answers.travelStyle.length > 0;
     case "budget":
-      return answers.budget.trim().length > 0;
+      if (answers.budget.trim().length === 0) return false;
+      if (answers.budget === "Custom") {
+        return answers.budgetAmount > 0;
+      }
+      return true;
     case "travelers":
       if (answers.travelers.trim().length === 0) return false;
       if (answers.travelers === "Family + kids") {
         return answers.childrenCount > 0;
+      }
+      if (answers.travelers === "Friends") {
+        return answers.friendsCount > 0;
       }
       return true;
     case "season":
@@ -172,15 +197,27 @@ export function PlanPage() {
     return answers.travelMode;
   }, [answers.travelMode, locale]);
 
+  const handleTravelStyleToggle = (value: TravelStyle) => {
+    setError("");
+    updateAnswer(
+      "travelStyle",
+      answers.travelStyle.includes(value)
+        ? answers.travelStyle.filter((item) => item !== value)
+        : answers.travelStyle.length < 3
+        ? [...answers.travelStyle, value]
+        : answers.travelStyle
+    );
+  };
+
   const steps = useMemo(
     () => [
       { id: "destination", title: t("plan.steps.destination") },
       { id: "duration", title: t("plan.steps.duration") },
       { id: "travelMode", title: t("plan.steps.travelMode") },
       { id: "style", title: t("plan.steps.style") },
-      { id: "budget", title: t("plan.steps.budget") },
       { id: "travelers", title: t("plan.steps.travelers") },
       { id: "season", title: t("plan.steps.season") },
+      { id: "budget", title: t("plan.steps.budget") },
     ],
     [t]
   );
@@ -361,21 +398,54 @@ export function PlanPage() {
           ) : null}
 
           {step.id === "style" ? (
-            <OptionChips
-              label={t("plan.style.question")}
-              options={travelStyleOptions}
-              value={answers.travelStyle}
-              onChange={(value) => updateAnswer("travelStyle", value)}
-            />
+            <div className="space-y-2">
+              <MultiOptionChips
+                label={t("plan.style.question")}
+                options={travelStyleOptions}
+                values={answers.travelStyle}
+                onToggle={handleTravelStyleToggle}
+              />
+              <p className="text-xs text-slate-400">
+                {t("plan.style.hint")}
+              </p>
+            </div>
           ) : null}
 
           {step.id === "budget" ? (
-            <OptionChips
-              label={t("plan.budget.question")}
-              options={budgetOptions}
-              value={answers.budget}
-              onChange={(value) => updateAnswer("budget", value)}
-            />
+            <div className="space-y-6">
+              <OptionChips
+                label={t("plan.budget.question")}
+                options={budgetOptions}
+                value={answers.budget}
+                onChange={(value) => {
+                  updateAnswer("budget", value);
+                  if (value !== "Custom") {
+                    updateAnswer("budgetAmount", 0);
+                  }
+                }}
+              />
+              {answers.budget === "Custom" ? (
+                <PrimaryInput
+                  label={t("plan.budget.customLabel")}
+                  placeholder={t("plan.budget.customPlaceholder")}
+                  hint={t("plan.budget.customHint")}
+                  type="number"
+                  min={0}
+                  value={
+                    answers.budgetAmount > 0
+                      ? String(answers.budgetAmount)
+                      : ""
+                  }
+                  onChange={(event) => {
+                    const nextValue = Number(event.target.value);
+                    updateAnswer(
+                      "budgetAmount",
+                      Number.isNaN(nextValue) ? 0 : nextValue
+                    );
+                  }}
+                />
+              ) : null}
+            </div>
           ) : null}
 
           {step.id === "travelers" ? (
@@ -389,6 +459,9 @@ export function PlanPage() {
                   if (value !== "Family + kids") {
                     updateAnswer("childrenCount", 0);
                   }
+                  if (value !== "Friends") {
+                    updateAnswer("friendsCount", 0);
+                  }
                 }}
               />
               <PrimaryInput
@@ -400,6 +473,9 @@ export function PlanPage() {
                   updateAnswer("travelers", nextValue);
                   if (nextValue !== "Family + kids") {
                     updateAnswer("childrenCount", 0);
+                  }
+                  if (nextValue !== "Friends") {
+                    updateAnswer("friendsCount", 0);
                   }
                 }}
               />
@@ -420,6 +496,28 @@ export function PlanPage() {
                     const nextValue = Number(event.target.value);
                     updateAnswer(
                       "childrenCount",
+                      Number.isNaN(nextValue) ? 0 : nextValue
+                    );
+                  }}
+                />
+              ) : null}
+              {answers.travelers === "Friends" ? (
+                <PrimaryInput
+                  label={t("plan.travelers.friendsLabel")}
+                  placeholder={t("plan.travelers.friendsPlaceholder")}
+                  hint={t("plan.travelers.friendsHint")}
+                  type="number"
+                  min={1}
+                  max={20}
+                  value={
+                    answers.friendsCount > 0
+                      ? String(answers.friendsCount)
+                      : ""
+                  }
+                  onChange={(event) => {
+                    const nextValue = Number(event.target.value);
+                    updateAnswer(
+                      "friendsCount",
                       Number.isNaN(nextValue) ? 0 : nextValue
                     );
                   }}
